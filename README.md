@@ -33,3 +33,33 @@ As a user, I want to be challenged so that I improve my knowledge of the types o
 As a user, I want the game to bw fun to play.  
 As a user, I would appreciate the game being free to play.  
 As a returning player, I would like there to be enough challenge so that there is some replay value within the game.
+
+
+## Deployment
+
+To deploy this page to GitHub Pages from its GitHub repository:
+
+1. Log into GitHub.
+2. From the list of repositories on the screen, select `Rorywork/pokemon-master`
+3. Go to settings on the right-hand side of the page and click on it.
+4. Scroll down to the GitHub Pages section.
+5. Under Source click the drop-down menu labeled None and select `Master Branch`
+6. On selecting `Master Branch` the page is automatically refreshed, the website is now deployed.
+7. Scroll back down to the GitHub Pages section to retrieve the link to the deployed website.
+8. [A working link to the website can be found here.](https://rorywork.github.io/pokemon-master/)
+
+
+#### How to run this project locally
+To clone this project from GitHub:
+
+1. Follow this link to the Project GitHub repository.
+2. Under the repository name, click "Clone or download".
+3. In the Clone with HTTPs section, copy the clone URL for the repository.
+4. In your local IDE open Git Bash.
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type `git clone`, and then paste the URL you copied in Step 3.
+7. ```git clone https://github.com/USERNAME/REPOSITORY```
+8. Press Enter. Your local clone will be created.
+9. Further reading and troubleshooting on cloning a repository from GitHub here.
+
+
