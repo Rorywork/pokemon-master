@@ -52,7 +52,12 @@ body{
     font-size: 1.5rem;
 }
 
-
+p{
+  font-size: 30px;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  font-family: 'pokemon-font', monospace;
+}
 
 
 /*#loading-overlay{*/
