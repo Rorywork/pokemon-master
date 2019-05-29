@@ -1,7 +1,5 @@
+/* global $ */
 
-
-$(document).ready(function(){
-  $("button").click(function(){
-    $("p").hide();
-  });
-});
+$(window).on('load', function(){
+    $('.preloader').addClass('complete')
+})
