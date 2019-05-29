@@ -47,14 +47,23 @@ body{
     right: -50%;
 }
 
+.top-gameboy{
+    height: 5vh;
+    background-color: yellow;
+    
+}
+
 .battleground{
     height: 60vh;
     background-color: white;
+    border: 5px solid black;
+    border-bottom: 0px;
 }
 
 .text-bar{
     border: 5px solid black;
     height: 15vh;
+    background-color: white;
 }
 
 
