@@ -90,6 +90,7 @@ p{
 
 
 .dark-grey-background{
+    border: 2px solid #222222;
     border-bottom-right-radius: 15%;
     background-color: #6B6A72;
     padding: 10%;
