@@ -76,6 +76,15 @@ p{
   font-family: 'pokemon-font', monospace;
 }
 
+button{
+    margin-top: 100px;
+}
+
+.black-background{
+    background-color: black;
+    padding: 10%;
+}
+
 
 /*#loading-overlay{*/
 /*    color: white;*/
