@@ -106,6 +106,40 @@ body{
     height: 60px;
 }
 
+#start-buttons{
+    background-color: #D8D9D4;
+    height: 100px;
+    margin-top: 50px;
+}
+
+#select-button{
+    margin-top: 40px;
+    height: 10px;
+    background-color:grey;
+    border-radius: 30%;
+}
+
+#start-button{
+    margin-top: 40px;
+    height: 10px;
+    background-color: grey;
+    border-radius: 30%;
+}
+
+#nintendo-corner{
+    height: 130px;
+}
+
+
+.black-line{
+    background-color: #D8D9D4;
+    height: 100px;
+}
+
+#grill{
+    margin-top: 75px;
+    background-color: black;
+}
 
 /*.preloader{*/
 /*    z-index: 1000;*/
