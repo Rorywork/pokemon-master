@@ -1,117 +1,223 @@
 body{
-    background-color: #D8D9D4;
-    margin: 0;
-    padding: 0;
+    background-color: white;
+    margin: 0px;
+    padding: 10px;
     font-size: 16px;
 }
 
-.preloader{
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /*background: #000;*/
-    transition: 1s;
-}
 
-.preloader:before{
-    z-index: 1000;
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background: #000;
-    transition: 2s;
-}
-
-.preloader.complete:before{
-    left: -50%;
-}
-
-.preloader:after{
-    z-index: 1000;
-    content: '';
-    position: absolute;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: #000;
-    transition: 2s;
-}
-
-.preloader.complete:after{
-    z-index: 1000;
-    right: -50%;
+.gameboy{
+    border: 3px solid #626979;
+    border-bottom-right-radius: 15%;
+    background-color: #D8D9D4;
+    max-width: 684px;
+    max-height: 1200px;
+    height: 800px;
+    margin: 0 auto;
 }
 
 .top-controls-gameboy{
-    height: 5vh;
     background-color: #D8D9D4;
-}
-
-.top-gameboy{
-    height: 5vh;
-    background-color: #D8D9D4;
+    height: 5%;
 }
 
 .grey-trim{
     border: 3px solid #626979;
 }
 
-.battleground{
-    height: 30vh;
-    background-color: white;
-    border: 5px solid black;
-    border-bottom: 0px;
+.screen-section{
+    margin-top: 5%;
+    height: 40%;
 }
 
-.text-bar{
-    border: 5px solid black;
-    height: 20vh;
+
+.screen-border{
+    background-color: #6B6A72;
+    border: 2px solid #222222;
+    border-bottom-right-radius: 15%;
+}
+
+.screen{
+    margin: 5% 15% 0% 15%;
+    height: 80%;
     background-color: white;
 }
 
-#gameboy-logo{
-    width: 60vw;
+#nintendo-logo{
+    margin-top: 1%;
+    height: 50%;
 }
+
+.arrow-keys{
+    height: 120px;
+}
+
+
+.row1{
+    background-color: red;
+    height: 40px;
+}
+.row2{
+    background-color: blue;
+    height: 40px;
+}
+.row3{
+    background-color: orange;
+    height: 40px;
+}
+
+#point-1{
+    background-color: #D8D9D4;
+}
+#point-2{
+    background-color: black;
+}
+#point-3{
+    background-color: #D8D9D4;
+}
+#point-4{
+    background-color: black;
+}
+#point-5{
+    background-color: black;
+}
+#point-6{
+    background-color: black;
+}
+#point-7{
+    background-color: #D8D9D4;
+}
+#point-8{
+    background-color: black;
+}
+#point-9{
+    background-color: #D8D9D4;
+}
+
+#a-button{
+    border-radius: 60%;
+    background-color: #994a50;
+    height: 60px;
+}
+
+#b-button{
+    border-radius: 60%;
+    background-color: #994a50;
+    height: 60px;
+}
+
+
+/*.preloader{*/
+/*    z-index: 1000;*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+    /*background: #000;*/
+/*    transition: 1s;*/
+/*}*/
+
+/*.preloader:before{*/
+/*    z-index: 1000;*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    width: 50%;*/
+/*    height: 100%;*/
+/*    background: #000;*/
+/*    transition: 2s;*/
+/*}*/
+
+/*.preloader.complete:before{*/
+/*    left: -50%;*/
+/*}*/
+
+/*.preloader:after{*/
+/*    z-index: 1000;*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    right: 0;*/
+/*    width: 50%;*/
+/*    height: 100%;*/
+/*    background: #000;*/
+/*    transition: 2s;*/
+/*}*/
+
+/*.preloader.complete:after{*/
+/*    z-index: 1000;*/
+/*    right: -50%;*/
+/*}*/
+
+/*.top-controls-gameboy{*/
+/*    background-color: #D8D9D4;*/
+/*    background-color: orange;*/
+/*}*/
+
+/*.top-gameboy{*/
+/*    position: relative;*/
+/*    height: 5vh;*/
+/*    width*/
+    /*background-color: #D8D9D4;*/
+/*    background-color: red;*/
+/*}*/
+
+/*.grey-trim{*/
+/*    border: 3px solid #626979;*/
+/*}*/
+
+/*.battleground{*/
+/*    height: 30vh;*/
+/*    background-color: white;*/
+/*    border: 5px solid black;*/
+/*    border-bottom: 0px;*/
+/*}*/
+
+/*.text-bar{*/
+/*    border: 5px solid black;*/
+/*    height: 20vh;*/
+/*    background-color: white;*/
+/*}*/
+
+/*#gameboy-logo{*/
+/*    width: 60vw;*/
+/*}*/
 
 
 /*// Pokemon font was imported from this github https://github.com/Superpencil/pokemon-font */
 
-p{
-  font-size: 50px;
-  font-smooth: never;
-  -webkit-font-smoothing: none;
-  font-family: 'pokemon-font', monospace;
-}
+/*p{*/
+/*  font-size: 50px;*/
+/*  font-smooth: never;*/
+/*  -webkit-font-smoothing: none;*/
+/*  font-family: 'pokemon-font', monospace;*/
+/*}*/
 
 
-.dark-grey-background{
-    border: 2px solid #222222;
-    border-bottom-right-radius: 15%;
-    background-color: #6B6A72;
-    padding: 10%;
-}
+/*.dark-grey-background{*/
+/*    border: 2px solid #222222;*/
+/*    border-bottom-right-radius: 15%;*/
+    /*background-color: #6B6A72;*/
+/*    background-color: pink;*/
+/*    padding: 10%;*/
+/*}*/
 
-#A-button{
-    margin-top: 100px;
-    width:75px;
-    background-color: #8a2d5c;
-    height: 75px;
-    border-radius: 50%;
-    border: 2px solid black;
-}
+/*#A-button{*/
+/*    margin-top: 100px;*/
+/*    width:75px;*/
+/*    background-color: #8a2d5c;*/
+/*    height: 75px;*/
+/*    border-radius: 50%;*/
+/*    border: 2px solid black;*/
+/*}*/
 
-#B-button{
-    background-color: #8a2d5c;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    border: 2px solid black;
-}
+/*#B-button{*/
+/*    background-color: #8a2d5c;*/
+/*    width: 75px;*/
+/*    height: 75px;*/
+/*    border-radius: 50%;*/
+/*    border: 2px solid black;*/
+/*}*/
 
 /*#loading-overlay{*/
 /*    color: white;*/
