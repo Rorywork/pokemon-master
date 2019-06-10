@@ -1,11 +1,14 @@
 body{
-    background-image: url("https://wallpaperplay.com/walls/full/6/3/7/58401.jpg");
-    background-color: white;
-    margin: 0px;
-    padding: 10px;
+	background-image: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("https://wallpaperplay.com/walls/full/6/3/7/58401.jpg");
+	background-position: center;
     font-size: 16px;
 }
 
+.heading{
+    margin-top: 10vh;
+    text-align: center;
+    color: white;
+}
 
 .gameboy{
     border: 3px solid #626979;
@@ -13,8 +16,9 @@ body{
     background-color: #D8D9D4;
     max-width: 684px;
     max-height: 1200px;
-    height: 800px;
+    height: 1000px;
     margin: 0 auto;
+    margin-top: 15vh;
 }
 
 .top-controls-gameboy{
@@ -55,15 +59,12 @@ body{
 
 
 .row1{
-    background-color: red;
     height: 40px;
 }
 .row2{
-    background-color: blue;
     height: 40px;
 }
 .row3{
-    background-color: orange;
     height: 40px;
 }
 
@@ -141,6 +142,7 @@ body{
     margin-top: 75px;
     background-color: black;
 }
+
 
 /*.preloader{*/
 /*    z-index: 1000;*/
@@ -260,7 +262,5 @@ body{
 /*    margin-top: 30vh;*/
 /*    text-align: center;*/
 /*}*/
-
-
 
 
