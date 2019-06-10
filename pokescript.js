@@ -1,8 +1,21 @@
 /* global $ */
 
 
+var selectedPokemon  // Initialise variable to hold random Pokemon ID
 
-let selectedPokemon = 0 // Initialise variable to hold random Pokemon ID
+var  name
+            
+var frontImage
+        
+var backImage
+        
+var typeOfPokemon 
+        
+var abilityOne
+        
+var weight
+
+
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
@@ -22,28 +35,55 @@ function getRandomPokemon(){
          $.getJSON(pokeapiUrl).done(function(data){
             console.log(data);
     
-        let selectedPokemon = data.id;
+        selectedPokemon = data.id;
             console.log (selectedPokemon);
     
-        let name = data.species.name.charAt(0).toUpperCase() + data.species.name.slice(1);
+        name = data.species.name.charAt(0).toUpperCase() + data.species.name.slice(1);
             console.log(name);
             
-        let frontImage = data.sprites.front_default;
+        frontImage = data.sprites.front_default;
+        console.log(frontImage)
         
-        let backImage = data.sprites.back_default;
+        backImage = data.sprites.back_default;
         
-        let typeOfPokemon = data.types[0].type.name;
+        typeOfPokemon = data.types[0].type.name;
             console.log(typeOfPokemon);
         
-        let abilityOne = data.abilities[0].ability.name;
+        abilityOne = data.abilities[0].ability.name;
             console.log(abilityOne);
         
-        let weight = data.weight;
+        weight = data.weight;
             console.log(weight);
             
      });
 
+}
 
+
+function frontImagePokemon(){
+    
+    let frontSprite = $("<div>").html("<img src=" + frontImage + "></img>");
+    frontSprite.appendTo("#front-image-div");
+    console.log(frontImage)
+    
+    
+}
+
+function backImagePokemon(){
+    
+    let backSprite = $("<div>").html("<img src=" + backImage + "></img>");
+    backSprite.appendTo("#back-image-div");
+    console.log(backImage)
+    
+    
+}
+
+function getTypePokemon(){
+    
+    let pokemonType = $("<p>").html(`Pokemon type is ${typeOfPokemon }`)
+               pokemonType.appendTo("#text-screen");
+    
+    
 }
 
 
