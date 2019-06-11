@@ -171,6 +171,25 @@ function getRandomCandidateAnswers(pID, numAnswers) {
 }
 
 
+function getMewTwo(){
+    
+     let pokeapiUrl = "https://pokeapi.co/api/v2/pokemon/mewtwo"
+    
+        console.log(pokeapiUrl);
+    
+         $.getJSON(pokeapiUrl).done(function(data){
+            console.log(data);
+    
+        frontImage = data.sprites.front_default;
+        console.log(frontImage)
+        
+        $('#loading-image').prepend("<img src=" + frontImage + "></img>")
+        
+      
+     });
+    
+}
+
 
     //         var image = data.sprites.front_shiny;
               
