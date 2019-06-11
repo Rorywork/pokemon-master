@@ -190,6 +190,12 @@ function getMewTwo(){
     
 }
 
+function writeText(message){
+    
+    let screenMessage = $("<p>").html(message)
+    screenMessage.appendTo("#messageRow")
+}
+
 
     //         var image = data.sprites.front_shiny;
               
