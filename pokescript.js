@@ -152,11 +152,19 @@ function getRandomCandidateAnswers(pID, numAnswers) {
                 url.lastIndexOf("/")
             );
             
+            // If the PokemonAnswerIDs array contains the current pIndex from the API call, then push the name onto the array
+            
             pokemonAnswerIDs.indexOf(parseInt(pIndex)) >= 0 ? candidateAnswerPokemonNames.push(name) : console.log() ;
         });
         
     console.log(candidateAnswerPokemonNames);
-    //return candidateAnswerPokemonNames;
+    
+    $.each(candidateAnswerPokemonNames, function(index,pokemonName) {
+        let selectPokemon = $("<p>").html(`Select ${pokemonName}`)
+               selectPokemon.appendTo("#select-screen");
+    });
+    
+
     });
     
 
