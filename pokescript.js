@@ -183,6 +183,8 @@ function getMewTwo(){
         frontImage = data.sprites.front_default;
         console.log(frontImage)
         
+        $("#loading-image").empty();
+        
         $('#loading-image').prepend("<img src=" + frontImage + "></img>")
         
       
@@ -193,7 +195,17 @@ function getMewTwo(){
 function writeText(message){
     
     let screenMessage = $("<p>").html(message)
-    screenMessage.appendTo("#messageRow")
+    
+    $("#messageCol").empty();
+    
+    screenMessage.appendTo("#messageCol")
+}
+
+function loadingScreen(){
+    
+    writeText("Loading");
+    getMewTwo();
+    
 }
 
 
