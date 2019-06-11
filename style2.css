@@ -1,0 +1,30 @@
+.container{
+     background-color: black;
+     height: 500px;
+     width: 500px;
+}
+
+.red{
+    background-color: red;
+    height: 20%;
+}
+.blue{
+    background-color: blue;
+    height: 20%;
+}
+.yellow{
+    background-color: yellow;
+    height: 20%;
+}
+.pink{
+    background-color: pink;
+    height: 20%;
+}
+.orange{
+    background-color: orange;
+    height: 20%;
+}
+
+.col-sm-4{
+    border: 2px solid black;
+}
