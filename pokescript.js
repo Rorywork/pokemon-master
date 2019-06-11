@@ -26,7 +26,7 @@ $( document ).ready(function() {
 
 
 
-function getRandomPokemon(){
+function firstClue(){
     
         let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon/${(Math.floor(Math.random() * 151) + 1).toString()}`; // Generates a random pokemon id from the API
     
@@ -55,6 +55,7 @@ function getRandomPokemon(){
         weight = data.weight;
             console.log(weight);
             
+        backImagePokemon();    
      });
 
 }
@@ -72,7 +73,10 @@ function frontImagePokemon(){
 function backImagePokemon(){
     
     let backSprite = $("<div>").html("<img src=" + backImage + "></img>");
-    backSprite.appendTo("#back-image-div");
+    
+    $("#loading-image").empty();
+    
+    backSprite.appendTo("#loading-image");
     console.log(backImage)
     
     
@@ -207,6 +211,8 @@ function loadingScreen(){
     getMewTwo();
     
 }
+
+
 
 
     //         var image = data.sprites.front_shiny;
