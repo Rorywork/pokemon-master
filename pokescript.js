@@ -82,11 +82,27 @@ function backImagePokemon(){
     
 }
 
-function getTypePokemon(){
+function secondClue(){
     
-    let pokemonType = $("<p>").html(`Pokemon type is ${typeOfPokemon }`)
-               pokemonType.appendTo("#text-screen");
+    let pokemonType = $("<p>").html(`This is a ${typeOfPokemon} Pokemon`)
+        $("#messageCol").empty();
+               pokemonType.appendTo("#messageCol");
     
+    
+}
+
+function thirdClue(){
+    
+    let pokemonAbility = $("<p>").html(`This Pokemon has the ability ${abilityOne}`)
+               pokemonAbility.appendTo("#messageCol");
+    
+    
+}
+
+function fourthClue(){
+    
+    let pokemonWeight = $("<p>").html(`This Pokemon weighs ${weight} Pokegrams`)
+               pokemonWeight.appendTo("#messageCol");
     
 }
 
@@ -211,6 +227,7 @@ function loadingScreen(){
     getMewTwo();
     
 }
+
 
 
 
