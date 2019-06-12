@@ -136,7 +136,7 @@ function getPokedex() {
 
 
 
-function getRandomCandidateAnswers(pID, numAnswers) {
+function getRandomCandidateAnswers(numAnswers) {
     
     var pokemonAnswerIDs = [];            // Initialise array to generate random pokemon IDs
     
@@ -144,11 +144,11 @@ function getRandomCandidateAnswers(pID, numAnswers) {
     for (i = 0; i < numAnswers - 1; i++) {
         
         var candidateAnswerID = Math.floor(Math.random() * 151) + 1;
-        pokemonAnswerIDs.indexOf(candidateAnswerID) === -1 && candidateAnswerID != pID ? pokemonAnswerIDs.push(candidateAnswerID) :  i-- ;
+        pokemonAnswerIDs.indexOf(candidateAnswerID) === -1 && candidateAnswerID != selectedPokemon ? pokemonAnswerIDs.push(candidateAnswerID) :  i-- ;
     }
     
     // Finally add the correct Pokemon ID to the array
-    pokemonAnswerIDs.push(pID);
+    pokemonAnswerIDs.push(selectedPokemon);
     
     console.log(pokemonAnswerIDs);    
     
