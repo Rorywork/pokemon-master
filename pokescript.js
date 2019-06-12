@@ -85,8 +85,8 @@ function backImagePokemon(){
 function secondClue(){
     
     let pokemonType = $("<p>").html(`This is a ${typeOfPokemon} Pokemon`)
-        $("#messageCol").empty();
-               pokemonType.appendTo("#messageCol");
+        $("#mainBody").empty();
+               pokemonType.appendTo("#mainBody");
     
     
 }
@@ -94,7 +94,7 @@ function secondClue(){
 function thirdClue(){
     
     let pokemonAbility = $("<p>").html(`This Pokemon has the ability ${abilityOne}`)
-               pokemonAbility.appendTo("#messageCol");
+               pokemonAbility.appendTo("#mainBody");
     
     
 }
@@ -102,7 +102,7 @@ function thirdClue(){
 function fourthClue(){
     
     let pokemonWeight = $("<p>").html(`This Pokemon weighs ${weight} Pokegrams`)
-               pokemonWeight.appendTo("#messageCol");
+               pokemonWeight.appendTo("#mainBody");
     
 }
 
@@ -180,10 +180,14 @@ function getRandomCandidateAnswers(pID, numAnswers) {
     console.log(candidateAnswerPokemonNames);
     
     $.each(candidateAnswerPokemonNames, function(index,pokemonName) {
-        let selectPokemon = $("<p>").html(`Select ${pokemonName}`)
-               selectPokemon.appendTo("#select-screen");
+        let selectPokemon = $("<li>").html("<a href='#'>" + pokemonName + "</a></li>");
+               selectPokemon.appendTo(".navmenu");
     });
     
+    $('.navmenu').on('click','li', function(){
+        $('.navmenu li.active').removeClass('active');
+        $(this).addClass('active');
+    })
 
     });
     
@@ -216,9 +220,9 @@ function writeText(message){
     
     let screenMessage = $("<p>").html(message)
     
-    $("#messageCol").empty();
+    $("#mainBody").empty();
     
-    screenMessage.appendTo("#messageCol")
+    screenMessage.appendTo("#mainBody")
 }
 
 function loadingScreen(){
