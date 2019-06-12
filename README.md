@@ -63,3 +63,5 @@ To clone this project from GitHub:
 9. Further reading and troubleshooting on cloning a repository from GitHub here.
 
 
+
+https://www.developphp.com/video/JavaScript/Transform-Rotate-Image-Spin-Smooth-Animation-Tutorial

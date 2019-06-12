@@ -179,6 +179,8 @@ function getRandomCandidateAnswers(numAnswers) {
         
     console.log(candidateAnswerPokemonNames);
     
+    
+    
     $.each(candidateAnswerPokemonNames, function(index,pokemonName) {
         let selectPokemon = $("<li>").html("<a href='#'>" + pokemonName + "</a></li>");
                selectPokemon.appendTo(".navmenu");
