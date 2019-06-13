@@ -225,6 +225,7 @@ function getRandomCandidateAnswers() {
     });
     
 
+    gameStatus ="answerlist"
 }
 
 
@@ -294,6 +295,8 @@ function rotateAnimation(el,speed){
 
 function showGameInstructions() {
     
+    $("#scoreScreen").empty();
+    
     rotateAnimation('img1',10);
     writeText('Here are the instructions on how to play the game. The back of a pokemon will appear on screen, press the B button to get clues about the pokemon, when you are ready to guess press the A button')
     gameStatus = "instructionsloaded"
@@ -329,10 +332,12 @@ function checkAnswer() {
         userScore ++ ;
         var screenScore = $("<p>").html(`${userScore} points`)
         screenScore.appendTo("#scoreScreen");
+        gameStatus = "instructionsloaded";
     } else {
         var screenScore = $("<p>").html(`Game over you scored ${userScore} points. Click A to play again.`)
         screenScore.appendTo("#scoreScreen");
         userScore = 0
+        gameStatus = "loadingcompleted";
     }
     
     candidateAnswerPokemonNames = [];       // Reset the array of possible answers
@@ -372,6 +377,11 @@ function buttonAHandler(){
     else if (gameStatus == "thirdclueloaded"){
         
         fourthClue();
+        
+    }
+    else if (gameStatus == "answerlist"){
+        
+        checkAnswer();
         
     }
     
