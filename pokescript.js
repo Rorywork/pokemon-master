@@ -25,6 +25,8 @@ var candidateAnswerPokemonNames = [];       // Initialise array for Pokemon name
 
 var ansHighlightPos      // Answer list highlight position 
 
+var userScore = 0;
+
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
@@ -279,7 +281,7 @@ function rotateAnimation(el,speed){
 
 function showGameInstructions() {
     
-    rotateAnimation('img1',30);
+    rotateAnimation('img1',10);
     writeText('Here are the instructions on how to play the game. The back of a pokemon will appear on screen, press the B button to get clues about the pokemon, when you are ready to guess press the A button')
     
 }
