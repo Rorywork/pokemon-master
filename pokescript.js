@@ -27,6 +27,8 @@ var ansHighlightPos      // Answer list highlight position
 
 var userScore;
 
+var gameStatus = ""; // Holds the status of the game i.e what page/section it is on
+
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
@@ -72,7 +74,9 @@ function firstClue(){
             
         backImagePokemon();    
      });
-
+        
+        gameStatus ="firstclueloaded"
+        
 }
 
 
@@ -102,6 +106,8 @@ function secondClue(){
     let pokemonType = $("<p>").html(`This is a ${typeOfPokemon} Pokemon`)
         $("#mainBody").empty();
                pokemonType.appendTo("#mainBody");
+               
+    gameStatus ="secondclueloaded"
     
     
 }
@@ -110,7 +116,8 @@ function thirdClue(){
     
     let pokemonAbility = $("<p>").html(`This Pokemon has the ability ${abilityOne}`)
                pokemonAbility.appendTo("#mainBody");
-    
+
+    gameStatus ="thirdclueloaded"
     
 }
 
@@ -118,7 +125,9 @@ function fourthClue(){
     
     let pokemonWeight = $("<p>").html(`This Pokemon weighs ${weight} Pokegrams`)
                pokemonWeight.appendTo("#mainBody");
-    
+
+    gameStatus ="fourthclueloaded"
+
 }
 
 
@@ -251,9 +260,12 @@ function writeText(message){
 
 function loadingScreen(){
     
-    writeText("Loading");
+    console.log("Testing")
+    
+    writeText("Loading....");
     getElectrode();
     userScore = 0;
+    gameStatus = "loadingcompleted"
     
 }
 
@@ -284,7 +296,7 @@ function showGameInstructions() {
     
     rotateAnimation('img1',10);
     writeText('Here are the instructions on how to play the game. The back of a pokemon will appear on screen, press the B button to get clues about the pokemon, when you are ready to guess press the A button')
-    
+    gameStatus = "instructionsloaded"
 }
 
 function listDown(){
@@ -327,7 +339,44 @@ function checkAnswer() {
         
 }
 
+function buttonAHandler(){
+    
+    console.log(gameStatus);
+   if (gameStatus == ""){
+        
+        loadingScreen();
+        
+    }
+    
+    else if (gameStatus == "loadingcompleted"){
+        
+        showGameInstructions();
+        
+    }
 
+    else if (gameStatus == "instructionsloaded"){
+        
+        firstClue();
+        
+    }
+    else if (gameStatus == "firstclueloaded"){
+        
+        secondClue();
+        
+    }
+    else if (gameStatus == "secondclueloaded"){
+        
+        thirdClue();
+        
+    }
+    else if (gameStatus == "thirdclueloaded"){
+        
+        fourthClue();
+        
+    }
+    
+    
+}
 
 
 
