@@ -378,6 +378,18 @@ function buttonAHandler(){
     
 }
 
+function buttonBHandler(){
+    
+    if (gameStatus == "firstclueloaded" || gameStatus =="secondclueloaded" || gameStatus =="thirdclueloaded" || gameStatus =="fourthclueloaded"){
+        
+        getRandomCandidateAnswers();
+        
+    } 
+    
+    
+    
+}
+
 
 
     //         var image = data.sprites.front_shiny;
