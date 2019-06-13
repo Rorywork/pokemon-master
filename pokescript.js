@@ -15,6 +15,15 @@ var abilityOne
         
 var weight
 
+var looper;
+
+var degrees = 0;
+
+var numAnswers = 5;      // How many possible answers to display
+
+var candidateAnswerPokemonNames = [];       // Initialise array for Pokemon names
+
+var ansHighlightPos      // Answer list highlight position 
 
 
 // A $( document ).ready() block.
@@ -29,6 +38,10 @@ $( document ).ready(function() {
 function firstClue(){
     
         let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon/${(Math.floor(Math.random() * 151) + 1).toString()}`; // Generates a random pokemon id from the API
+    
+        $("#mainBody").empty();
+        
+        writeText(" Below is an image from the back of the Pokemon that you have to guess...")
     
         console.log(pokeapiUrl);
     
@@ -136,7 +149,7 @@ function getPokedex() {
 
 
 
-function getRandomCandidateAnswers(numAnswers) {
+function getRandomCandidateAnswers() {
     
     var pokemonAnswerIDs = [];            // Initialise array to generate random pokemon IDs
     
@@ -155,8 +168,7 @@ function getRandomCandidateAnswers(numAnswers) {
     // Code to build array of possible answers from the API pokemon names seleced from the random IDs above
     
     var pokeapiURL = "https://pokeapi.co/api/v2/generation/1";      // API call to return full Pokedex
-    
-    var candidateAnswerPokemonNames = [];       // Initialise array for Pokemon names
+
     
     // JSON execute to return API data to variable data
     $.getJSON(pokeapiURL).done(function(data) {
@@ -179,17 +191,25 @@ function getRandomCandidateAnswers(numAnswers) {
         
     console.log(candidateAnswerPokemonNames);
     
+    ansHighlightPos = 1;
     
+     $("#mainBody").empty();
+    
+    var listHtml = "<ul class='navmenu'>";
     
     $.each(candidateAnswerPokemonNames, function(index,pokemonName) {
-        let selectPokemon = $("<li>").html("<a href='#'>" + pokemonName + "</a></li>");
-               selectPokemon.appendTo(".navmenu");
+        listHtml += "<li id='listPos" + (index + 1).toString() + "'><a href='#'>" + pokemonName + "</a></li>";
     });
+    
+    listHtml += '</ul>';
+    $('#mainBody').append(listHtml);
     
     $('.navmenu').on('click','li', function(){
         $('.navmenu li.active').removeClass('active');
         $(this).addClass('active');
     })
+    
+    $("#listPos1").css("background-color", "#555");
 
     });
     
@@ -197,9 +217,9 @@ function getRandomCandidateAnswers(numAnswers) {
 }
 
 
-function getMewTwo(){
+function getElectrode(){
     
-     let pokeapiUrl = "https://pokeapi.co/api/v2/pokemon/mewtwo"
+     let pokeapiUrl = "https://pokeapi.co/api/v2/pokemon/electrode"
     
         console.log(pokeapiUrl);
     
@@ -211,7 +231,7 @@ function getMewTwo(){
         
         $("#loading-image").empty();
         
-        $('#loading-image').prepend("<img src=" + frontImage + "></img>")
+        $('#loading-image').prepend("<img id='img1' src=" + frontImage + "></img>")
         
       
      });
@@ -230,11 +250,63 @@ function writeText(message){
 function loadingScreen(){
     
     writeText("Loading");
-    getMewTwo();
+    getElectrode();
     
 }
 
+function rotateAnimation(el,speed){
+    
+	var elem = document.getElementById(el);
+	if(navigator.userAgent.match("Chrome")){
+		elem.style.WebkitTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Firefox")){
+		elem.style.MozTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("MSIE")){
+		elem.style.msTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Opera")){
+		elem.style.OTransform = "rotate("+degrees+"deg)";
+	} else {
+		elem.style.transform = "rotate("+degrees+"deg)";
+	}
+	looper = setTimeout('rotateAnimation(\''+el+'\','+speed+')',speed);
+	degrees++;
+	if(degrees > 359){
+		degrees = 1;
+	}
+	
+}
 
+
+function showGameInstructions() {
+    
+    rotateAnimation('img1',30);
+    writeText('Here are the instructions on how to play the game. The back of a pokemon will appear on screen, press the B button to get clues about the pokemon, when you are ready to guess press the A button')
+    
+}
+
+function listDown(){
+    $("#listPos" + ansHighlightPos.toString()).css("background-color", "#f1f1f1");    
+    ansHighlightPos ++;
+    if(ansHighlightPos == numAnswers + 1) ansHighlightPos = 1;
+    $("#listPos" + ansHighlightPos.toString()).css("background-color", "#555");    
+}
+
+function listUp(){
+    $("#listPos" + ansHighlightPos.toString()).css("background-color", "#f1f1f1");    
+    ansHighlightPos --;
+    if(ansHighlightPos == 0) ansHighlightPos = numAnswers;
+    $("#listPos" + ansHighlightPos.toString()).css("background-color", "#555");    
+}
+
+
+function checkAnswer() {
+    
+    var isCorrect = ((name == candidateAnswerPokemonNames[ansHighlightPos - 1]) ? 'correct' : 'incorrect');
+    $("#mainBody").empty();
+    writeText("You selected " + candidateAnswerPokemonNames[ansHighlightPos - 1] + ". That is " + isCorrect);
+    candidateAnswerPokemonNames = [];       // Reset the array of possible answers
+    
+}
 
 
 
