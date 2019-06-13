@@ -135,30 +135,50 @@ body{
 
 #point-1{
     background-color: #D8D9D4;
+    border-color: black;
 }
 #point-2{
     background-color: black;
+        border: grey solid;
+        border-bottom-style: none;
 }
 #point-3{
     background-color: #D8D9D4;
+        border-color: black;
 }
 #point-4{
     background-color: black;
+        border: grey solid;
+        border-right-style: none;
 }
 #point-5{
     background-color: black;
+        border-color: black;
 }
 #point-6{
     background-color: black;
+    border: grey solid;
+    border-left-style: none;
 }
 #point-7{
     background-color: #D8D9D4;
+        border-color: black;
 }
 #point-8{
     background-color: black;
+    border: grey solid;
+    border-top-style: none;
 }
 #point-9{
     background-color: #D8D9D4;
+        border-color: black;
+}
+
+#middle-key{
+    position: relative;
+    height: 20px;
+    background-color: #151312;
+    border-radius: 100%;
 }
 
 #a-button{
