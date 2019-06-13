@@ -25,7 +25,7 @@ var candidateAnswerPokemonNames = [];       // Initialise array for Pokemon name
 
 var ansHighlightPos      // Answer list highlight position 
 
-var userScore = 0;
+var userScore;
 
 
 // A $( document ).ready() block.
@@ -253,6 +253,7 @@ function loadingScreen(){
     
     writeText("Loading");
     getElectrode();
+    userScore = 0;
     
 }
 
@@ -303,12 +304,30 @@ function listUp(){
 
 function checkAnswer() {
     
+    console.log(userScore);
+    
     var isCorrect = ((name == candidateAnswerPokemonNames[ansHighlightPos - 1]) ? 'correct' : 'incorrect');
     $("#mainBody").empty();
     writeText("You selected " + candidateAnswerPokemonNames[ansHighlightPos - 1] + ". That is " + isCorrect);
-    candidateAnswerPokemonNames = [];       // Reset the array of possible answers
     
+    $("#scoreScreen").empty();
+    
+    
+    if(name == candidateAnswerPokemonNames[ansHighlightPos - 1]) {
+        userScore ++ ;
+        var screenScore = $("<p>").html(`${userScore} points`)
+        screenScore.appendTo("#scoreScreen");
+    } else {
+        var screenScore = $("<p>").html(`Game over you scored ${userScore} points. Click A to play again.`)
+        screenScore.appendTo("#scoreScreen");
+        userScore = 0
+    }
+    
+    candidateAnswerPokemonNames = [];       // Reset the array of possible answers
+        
 }
+
+
 
 
 
