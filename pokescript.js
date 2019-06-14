@@ -1,6 +1,5 @@
 /* global $ */
 
-
 var selectedPokemon  // Initialise variable to hold random Pokemon ID
 
 var  name
@@ -42,10 +41,10 @@ $( document ).ready(function() {
 function firstClue(){
     
         let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon/${(Math.floor(Math.random() * 151) + 1).toString()}`; // Generates a random pokemon id from the API
-    
+        $("#scoreScreen").empty();
         $("#mainBody").empty();
         
-        writeText(" Below is an image from the back of the Pokemon that you have to guess...")
+        writeText(" Below is an image from the back of the Pokemon that you have to guess... Click A if you need another clue.")
     
         console.log(pokeapiUrl);
     
@@ -73,11 +72,15 @@ function firstClue(){
             console.log(weight);
             
         backImagePokemon();    
-     });
-        
+     }).fail(function(){
+         console.log("Request to Pokeapi failed.")
+     }).always(function(){
+        console.log("Request to Pokeapi was successful.");
         gameStatus ="firstclueloaded"
+     });    
         
 }
+
 
 
 function frontImagePokemon(){
@@ -103,7 +106,7 @@ function backImagePokemon(){
 
 function secondClue(){
     
-    let pokemonType = $("<p>").html(`This is a ${typeOfPokemon} Pokemon`)
+    let pokemonType = $("<p>").html(`This is a ${typeOfPokemon} Pokemon. Click A if you need another clue.`)
         $("#mainBody").empty();
                pokemonType.appendTo("#mainBody");
                
@@ -114,7 +117,7 @@ function secondClue(){
 
 function thirdClue(){
     
-    let pokemonAbility = $("<p>").html(`This Pokemon has the ability ${abilityOne}`)
+    let pokemonAbility = $("<p>").html(`This Pokemon has the ability ${abilityOne}. Click A if you need another clue.`)
                pokemonAbility.appendTo("#mainBody");
 
     gameStatus ="thirdclueloaded"
@@ -123,7 +126,7 @@ function thirdClue(){
 
 function fourthClue(){
     
-    let pokemonWeight = $("<p>").html(`This Pokemon weighs ${weight} Pokegrams`)
+    let pokemonWeight = $("<p>").html(`This Pokemon weighs ${weight} Pokegrams. That is all the clues. Now you need to choose the Pokemon by pressing button B`)
                pokemonWeight.appendTo("#mainBody");
 
     gameStatus ="fourthclueloaded"
@@ -222,10 +225,13 @@ function getRandomCandidateAnswers() {
     
     $("#listPos1").css("background-color", "#555");
 
-    });
+    }).fail(function(){
+         console.log("Request to Pokeapi failed.")
+     }).always(function(){
+        console.log("Request to Pokeapi was successful.");
+        gameStatus ="answerlist"
+     });   
     
-
-    gameStatus ="answerlist"
 }
 
 
@@ -246,7 +252,12 @@ function getElectrode(){
         $('#loading-image').prepend("<img id='img1' src=" + frontImage + "></img>")
         
       
-     });
+     }).fail(function(){
+         console.log("Request to Pokeapi failed.")
+     }).always(function(){
+        console.log("Request to Pokeapi was successful.");
+        gameStatus ="loadingcompleted"
+     });  
     
 }
 
@@ -318,9 +329,7 @@ function listUp(){
 
 
 function checkAnswer() {
-    
-    console.log(userScore);
-    
+  
     var isCorrect = ((name == candidateAnswerPokemonNames[ansHighlightPos - 1]) ? 'correct' : 'incorrect');
     $("#mainBody").empty();
     writeText("You selected " + candidateAnswerPokemonNames[ansHighlightPos - 1] + ". That is " + isCorrect);
@@ -330,14 +339,14 @@ function checkAnswer() {
     
     if(name == candidateAnswerPokemonNames[ansHighlightPos - 1]) {
         userScore ++ ;
-        var screenScore = $("<p>").html(`${userScore} points`)
+        var screenScore = $("<p>").html(`${userScore} points. Click A for next pokemon`)
         screenScore.appendTo("#scoreScreen");
         gameStatus = "instructionsloaded";
     } else {
         var screenScore = $("<p>").html(`Game over you scored ${userScore} points. Click A to play again.`)
         screenScore.appendTo("#scoreScreen");
         userScore = 0
-        gameStatus = "loadingcompleted";
+        gameStatus = "instructionsloaded";
     }
     
     candidateAnswerPokemonNames = [];       // Reset the array of possible answers
@@ -396,24 +405,5 @@ function buttonBHandler(){
         
     } 
     
-    
-    
 }
 
-
-
-    //         var image = data.sprites.front_shiny;
-              
-    //           var screen_image = $("<div>").html("<img src=" + image + "></img>");
-    //           screen_image.appendTo("#image-div");
-              
-    //           var character = $("<p>").html(`Pokemon species is ${name}`)
-    //           character.appendTo("#text-screen");
-              
-              
-    //     }).fail(function(){
-            
-    //         console.log("Request to Pokeapi failed.")
-            
-    // }).always(function(){
-    //     console.log("Pokemon is awesome my friend.");
