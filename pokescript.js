@@ -225,6 +225,7 @@ function getRandomCandidateAnswers() {
     
     $("#listPos1").css("background-color", "#555");
 
+
     }).fail(function(){
          console.log("Request to Pokeapi failed.")
      }).always(function(){

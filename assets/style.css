@@ -92,25 +92,25 @@ body{
 .screen{
     margin: 5% 15% 0% 15%;
     height: 80%;
-    background-color: white;
+    background-color: #b2f700;
 }
 
 /*Combined from other test pages*/
 
 
 .scoreRow{
-    background-color: grey;
-    height: 20%;
+    height: 15%;
+    border: 1px solid black;
 }
 
 .gameRow{
-    background-color: white;
-    height: 60%;
+    height: 55%;
+    border: 1px solid black;
 }
 
 .instructionRow{
-    background-color: grey;
     height: 30%;
+    border: 1px solid black;
 }
 
 
@@ -243,8 +243,7 @@ ul.navmenu {
 ul.navmenu li a {
     display:block;
     color:#000;
-    padding:8px 16px;
+    padding: 8px 16px;
     text-decoration:none;
+    border: 1px solid black;
 }
-
-
