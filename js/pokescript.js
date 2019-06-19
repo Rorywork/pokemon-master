@@ -1,5 +1,15 @@
 /* global $ */
 
+// Preloader
+
+$(window).on('load', function(){
+    $('.preloader').addClass('complete')
+})
+
+
+
+
+
 var selectedPokemon  // Initialise variable to hold random Pokemon ID
 
 var  name
@@ -30,11 +40,6 @@ var gameStatus = ""; // Holds the status of the game i.e what page/section it is
 
 
 
-// Preloader
-
-$(window).on('load', function(){
-    $('.preloader').addClass('complete')
-})
 
 
 
@@ -419,4 +424,7 @@ function buttonBHandler(){
     } 
     
 }
+
+
+
 

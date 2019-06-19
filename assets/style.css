@@ -24,7 +24,7 @@
 }
 
 .preloader:after{
-    z-index: 1000;
+    z-index: -1;
     content: '';
     position: absolute;
     right: 0;
@@ -35,7 +35,7 @@
 }
 
 .preloader.complete:after{
-    z-index: 1000;
+    z-index: -1;
     right: -50%;
 }
 
@@ -46,7 +46,6 @@ body{
 	background-position: center;
 	background-repeat: no-repeat;
     color: black;
-    background-color: black;
     font-size: 14px;
     font-smooth: never;
     -webkit-font-smoothing: none;
