@@ -1,43 +1,43 @@
-.preloader{
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: 1s;
-}
+/*.preloader{*/
+/*    z-index: 1000;*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    transition: 1s;*/
+/*}*/
 
-.preloader:before{
-    z-index: 1000;
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background: #000;
-    transition: 2s;
-}
+/*.preloader:before{*/
+/*    z-index: 1000;*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    width: 50%;*/
+/*    height: 100%;*/
+/*    background: #000;*/
+/*    transition: 2s;*/
+/*}*/
 
-.preloader.complete:before{
-    left: -50%;
-}
+/*.preloader.complete:before{*/
+/*    left: -50%;*/
+/*}*/
 
-.preloader:after{
-    z-index: -1;
-    content: '';
-    position: absolute;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: #000;
-    transition: 2s;
-}
+/*.preloader:after{*/
+/*    z-index: 1000;*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    right: 0;*/
+/*    width: 50%;*/
+/*    height: 100%;*/
+/*    background: #000;*/
+/*    transition: 2s;*/
+/*}*/
 
-.preloader.complete:after{
-    z-index: -1;
-    right: -50%;
-}
+/*.preloader.complete:after{*/
+/*    z-index: 1000;*/
+/*    right: -50%;*/
+/*}*/
 
 
 
@@ -46,6 +46,7 @@ body{
 	background-position: center;
 	background-repeat: no-repeat;
     color: black;
+    background-color: black;
     font-size: 14px;
     font-smooth: never;
     -webkit-font-smoothing: none;
@@ -108,12 +109,12 @@ header{
 }
 
 .gameRow{
-    height: 55%;
+    height: 50%;
     border: 1px solid black;
 }
 
 .instructionRow{
-    height: 25%;
+    height: 30%;
     border: 1px solid black;
 }
 
