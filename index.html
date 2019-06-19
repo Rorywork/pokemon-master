@@ -1,266 +1,266 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Pokemon Master</title>
-		<link rel="stylesheet" href="assets/bootstrap-grid.css" type="text/css" />
-		<link rel="stylesheet" href="assets/style.css" type="text/css" />
-		<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/pokemon" type="text/css"/>
-		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-		<!--<script src="js/logic.js"></script>-->
-		<script src="js/pokescript.js"></script>
 
-		
-		<!--<script src="pokescript.js"></script>-->
+<head>
+	<title>Pokemon Master</title>
+	<link rel="stylesheet" href="assets/bootstrap-grid.css" type="text/css" />
+	<link rel="stylesheet" href="assets/style.css" type="text/css" />
+	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/pokemon" type="text/css" />
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="js/pokescript.js"></script>
 
-		
-	</head>
-	
-	
-	
-	<body>
-		
-		
-		<!--<div class="preloader">-->
-		<!--</div>	-->
-		
-		
-		
-			<header>
-			<h1 class="heading">Pokemon Master</h1>
-			</header>
-		
-		
-	
+
+
+
+
+</head>
+
+
+
+<body>
+
+
+	<!--<div class="preloader">-->
+	<!--</div>	-->
+
+
+
+	<header>
+		<h1 class="heading">Pokemon Master</h1>
+	</header>
+
+
+
 	<div class="container gameboy">
-		
+
 		<div class="row top-controls-gameboy">
-			
+
 			<div class="col-sm-2 grey-trim">
-				
+
 			</div>
-			
+
 			<div class="col-sm-8 grey-trim">
-				
+
 			</div>
-			
+
 			<div class="col-sm-2 grey-trim">
-				
+
 			</div>
-			
+
 		</div>
-		
-		
-		
-		
+
+
+
+
 		<div class=" row justify-content-center screen-section">
-			
+
 			<div class="col-sm-10 screen-border">
-				
+
 				<div class="row justify-content-center screen">
-					
-																<div class="container">
-																				
-																			<div class="row scoreRow">
-																					
-																					<div class="col-sm-12" id="scoreScreen">
 
-																					</div>
-																					
-																			</div>
-																			
-																			
-																			
-																			
-																				
-																			<div class="row justify-content-center gameRow">
-																					
-																					<div class="col-sm-12" id="mainBody">
+					<div class="container">
 
-																					</div>
-																					
-																			</div>
-																				
-																				
-																				
-																				
-																				
-																				
-																			<div class="row instructionRow justify-content-center">	
-																				
-																					<div class="col-sm-5" id="loading-image">
+						<div class="row scoreRow">
 
-																					</div>
-																		
-																			</div>
-																				
-																				
-																</div>
-					
+							<div class="col-sm-12" id="scoreScreen">
+
+							</div>
+
+						</div>
+
+
+
+
+
+						<div class="row justify-content-center gameRow">
+
+							<div class="col-sm-12" id="mainBody">
+
+							</div>
+
+						</div>
+
+
+
+
+
+
+						<div class="row instructionRow justify-content-center">
+
+							<div class="col-sm-5" id="loading-image">
+
+							</div>
+
+						</div>
+
+
+					</div>
+
 				</div>
-				
-				
-			</div>	
-			
+
+
+			</div>
+
 		</div>
-		
-		
-		
-		
+
+
+
+
 		<div class="row">
 
 			<div class="col-sm-11 offset-1 nintendo-logo-column">
-					<img src="assets/images/gameboy-logo.png" class="img-responsive" id="nintendo-logo"></img>
+				<img src="assets/images/gameboy-logo.png" class="img-responsive" id="nintendo-logo"></img>
 			</div>
 		</div>
-		
-		
+
+
 		<div class="row justify-content-around">
-			
+
 			<div class="col-sm-3 arrow-keys">
-				
-				
-				
-				
+
+
+
+
 				<div class="row row1">
-					
+
 					<div class="col-sm-4" id="point-1">
-						
+
 					</div>
-					
-					<button onclick ="listUp()" class="col-sm-4" id="point-2">
+
+					<button onclick="listUp()" class="col-sm-4" id="point-2">
 						
 					</button>
-					
-					<div class="col-sm-4"  id="point-3">
-						
+
+					<div class="col-sm-4" id="point-3">
+
 					</div>
-					
+
 				</div>
-				
+
 				<div class="row row2">
-					
-					<button onclick = "listUp()" class="col-sm-4" id="point-4">
+
+					<button onclick="listUp()" class="col-sm-4" id="point-4">
 						
 					</button>
-					
+
 					<button class="col-sm-4" id="point-5">
 						<div id="middle-key"></div>
 					</button>
-					
-					<button onclick = "listDown()" class="col-sm-4"  id="point-6">
+
+					<button onclick="listDown()" class="col-sm-4" id="point-6">
 					
 						
-					</button>	
-					
+					</button>
+
 				</div>
-				
+
 				<div class="row row3">
-					
+
 					<div class="col-sm-4" id="point-7">
-						
+
 					</div>
-					
-					<button onclick = "listDown()" class="col-sm-4" id="point-8">
+
+					<button onclick="listDown()" class="col-sm-4" id="point-8">
 						
 					</button>
-					
-					<div class="col-sm-4"  id="point-9">
-						
-					</div>	
-					
+
+					<div class="col-sm-4" id="point-9">
+
+					</div>
+
 				</div>
-				
-				
-				
-				
-				
+
+
+
+
+
 			</div>
-			
+
 			<div class="col-sm-3 select-buttons">
-				
+
 				<div class="row">
-					
-					<button onclick = "buttonAHandler()" class="col-sm-6 offset-6" id="a-button">
+
+					<button onclick="buttonAHandler()" class="col-sm-6 offset-6" id="a-button">
 
 					</button>
-					
+
 				</div>
-				
-					<div class="row">
-					
-					<button onclick = "buttonBHandler()" class="col-sm-6" id="b-button">
+
+				<div class="row">
+
+					<button onclick="buttonBHandler()" class="col-sm-6" id="b-button">
 						
 					</button>
-					
+
 				</div>
-				
+
 			</div>
-			
+
 		</div>
-		
-		
-		
+
+
+
 		<div class="row">
-			
+
 			<div class="col-sm-2 offset-4" id="start-buttons">
-				
+
 				<div class="row justify-content-around">
-				
-					<div class="col-3" id= "select-button">
-					
-					</div>	
-				
-					<div class="col-3" id= "start-button">
-					
-					</div>	
-				
+
+					<div class="col-3" id="select-button">
+
+					</div>
+
+					<div class="col-3" id="start-button">
+
+					</div>
+
 				</div>
-				
-						
+
+
 			</div>
-			
+
 			<div class="col-sm-3 offset-2" id="grill">
-				
+
 				<div class="row justify-content-around">
-					
+
 					<div class="col-sm-1 black-line">
-					
+
 					</div>
 					<div class="col-sm-1 black-line">
-					
+
 					</div>
 					<div class="col-sm-1 black-line">
-					
+
 					</div>
 					<div class="col-sm-1 black-line">
-					
+
 					</div>
 					<div class="col-sm-1 black-line">
-		
+
 					</div>
 
-			
-					
+
+
 				</div>
-						
+
 			</div>
-			
+
 		</div>
-		
-		
-		
-		
+
+
+
+
 	</div>
-	
 
-	
 
-		
+
+
+
 	<!--<script src="https://code.jquery.com/jquery-3.4.1.js"></script>-->
 	<!--<script src="pokescript.js"></script>-->
 	<!--<script src="js/logic.js"></script>-->
 	<!--<script src="pokescript.js"></script>-->
 	<!--<script src="js/logic.js"></script>-->
-	</body>
-	
+</body>
+
 </html>
