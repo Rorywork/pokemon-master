@@ -42,17 +42,23 @@
 
 
 body{
-	background-image: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("https://wallpaperplay.com/walls/full/6/3/7/58401.jpg");
+	background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url("https://wallpaperplay.com/walls/full/6/3/7/58401.jpg");
 	background-position: center;
+	background-repeat: no-repeat;
     color: black;
+    background-color: black;
     font-size: 14px;
     font-smooth: never;
     -webkit-font-smoothing: none;
     font-family: 'pokemon-font', monospace;
 }
 
+
+header{
+    background-color: black;
+}
+
 .heading{
-    margin-top: 10vh;
     text-align: center;
     color: white;
 }
@@ -62,10 +68,9 @@ body{
     border-bottom-right-radius: 15%;
     background-color: #D8D9D4;
     max-width: 684px;
-    max-height: 1200px;
     height: 1000px;
     margin: 0 auto;
-    margin-top: 15vh;
+
 }
 
 .top-controls-gameboy{
@@ -99,7 +104,7 @@ body{
 
 
 .scoreRow{
-    height: 15%;
+    height: 20%;
     border: 1px solid black;
 }
 
@@ -109,7 +114,7 @@ body{
 }
 
 .instructionRow{
-    height: 30%;
+    height: 25%;
     border: 1px solid black;
 }
 

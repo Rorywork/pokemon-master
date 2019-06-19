@@ -29,6 +29,18 @@ var userScore;
 var gameStatus = ""; // Holds the status of the game i.e what page/section it is on
 
 
+
+// Preloader
+
+$(window).on('load', function(){
+    $('.preloader').addClass('complete')
+})
+
+
+
+
+
+
 // A $( document ).ready() block.
 $( document ).ready(function() {
     console.log( "ready!" );
