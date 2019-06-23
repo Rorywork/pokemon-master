@@ -42,11 +42,9 @@
 
 
 body{
-	background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url("https://wallpaperplay.com/walls/full/6/3/7/58401.jpg");
+	background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url("https://wallpaperplay.com/walls/full/6/3/7/58401.jpg");
 	background-position: center;
-	background-repeat: no-repeat;
     color: black;
-    background-color: black;
     font-size: 14px;
     font-smooth: never;
     -webkit-font-smoothing: none;
