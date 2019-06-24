@@ -44,10 +44,10 @@ function api(pokeSelection) {
     let baseUrl = "https://pokeapi.co/api/v2/pokemon/";
     pokeSelection === "electrode" ? apiUrl = `${baseUrl}${pokeSelection}` : apiUrl = `${baseUrl}${(Math.floor(Math.random() * 151) + 1).toString()}`;
     console.log(apiUrl);
-    
     return apiUrl 
-    
 }
+
+
 
 function doFetch(pokeSelection){
     
