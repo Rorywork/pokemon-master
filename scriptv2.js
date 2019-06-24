@@ -37,4 +37,9 @@ function clicked(){
     
     console.log("Button Click Successful")
     
+    let elem = document.createElement("img");
+    
+    document.getElementById("image-placeholder").appendChild(elem);
+    elem.src = 'https://pbs.twimg.com/profile_images/653700295395016708/WjGTnKGQ_400x400.png';
+    
 }
