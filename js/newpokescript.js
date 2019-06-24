@@ -18,6 +18,9 @@ document.getElementById('switchButton').addEventListener('click', status);
 
 
 
+// event handler for buttons for rotation
+on.addEventListener('click', () => rotateMe.classList.add('rotate'))
+off.addEventListener('click', () => rotateMe.classList.remove('rotate'))
 
 
 function status(){
