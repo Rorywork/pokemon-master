@@ -13,17 +13,9 @@ class Pokemon {
             this.weight = weight;
             this.height = height;
     }
-    
-    
-    
-    
     getImageUrl() {
         return this.frontImage();
     }
-    
-    
-    
-    
 }
 
 
@@ -33,13 +25,27 @@ document.getElementById('button1').addEventListener('click', clicked);
 
 
 
+
 function clicked(){
     
-    console.log("Button Click Successful")
+    let imageRequired = "front"
     
+    console.log("Button Clicked")
     let elem = document.createElement("img");
-    
     document.getElementById("image-placeholder").appendChild(elem);
-    elem.src = 'https://pbs.twimg.com/profile_images/653700295395016708/WjGTnKGQ_400x400.png';
+    
+    if (imageRequired === "front"){
+        
+        elem.src = 'https://pbs.twimg.com/profile_images/653700295395016708/WjGTnKGQ_400x400.png';
+        
+    } else{
+        elem.src = 'https://cdn.pixabay.com/photo/2018/12/04/22/38/road-3856796__340.jpg';
+    }
+    
+
+    
+condition ? exprIfTrue : exprIfFalse 
+    
+    
     
 }
