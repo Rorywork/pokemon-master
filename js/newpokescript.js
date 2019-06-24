@@ -3,7 +3,7 @@ var gameStatus = "startGame";
 var loadStatus = "loadGame"
 
 document.getElementById('newFetch').addEventListener('click', function(){
-    doFetch("electrode");
+    doFetch("electrod");
 }, false);
 
 document.getElementById('viewResults').addEventListener('click', viewResults);
@@ -16,11 +16,6 @@ document.getElementById('viewAPI').addEventListener('click', function(){
 
 document.getElementById('switchButton').addEventListener('click', status);
 
-
-
-// event handler for buttons for rotation
-on.addEventListener('click', () => rotateMe.classList.add('rotate'))
-off.addEventListener('click', () => rotateMe.classList.remove('rotate'))
 
 
 function status(){
@@ -45,13 +40,6 @@ function status(){
 
 
 
-
-
-
-
-
-
-
 function api(pokeSelection) {
     let baseUrl = "https://pokeapi.co/api/v2/pokemon/";
     pokeSelection === "electrode" ? apiUrl = `${baseUrl}${pokeSelection}` : apiUrl = `${baseUrl}${(Math.floor(Math.random() * 151) + 1).toString()}`;
@@ -61,58 +49,12 @@ function api(pokeSelection) {
     
 }
 
-
-
-
-function getElectrode() {
-    
-
-    let apiUrl = api("electrode")
-    
-    console.log(apiUrl)
-    
-    
-
-
-    
-    
-    // let pokeapiUrl = "https://pokeapi.co/api/v2/pokemon/electrode"
-
-    // console.log(pokeapiUrl);
-
-    // $.getJSON(pokeapiUrl).done(function(data) {
-    //     console.log(data);
-
-    //     frontImage = data.sprites.front_default;
-    //     console.log(frontImage)
-
-    //     $("#loading-image").empty();
-
-    //     $('#loading-image').prepend("<img id='img1' src=" + frontImage + "></img>")
-
-
-    // }).fail(function() {
-    //     console.log("Request to Pokeapi failed.")
-    // }).always(function() {
-    //     console.log("Request to Pokeapi was successful.");
-    //     gameStatus = "loadingcompleted"
-    // });
-
-
-    
-    
-    
-    
-}
-
-
-
-
-
-
-
-
 function doFetch(pokeSelection){
+    
+    
+    loadStatus = "firstClue";
+    
+    
     
     class Pokemon {
         constructor(id,name,frontImage, backImage, type, ability, weight, height) {
@@ -126,12 +68,27 @@ function doFetch(pokeSelection){
             this.height = height;
         }
         
+        
+    
+        
+        getClue() {
+            
+            if (loadStatus == "firstClue"){
+                return `The Pokemon has the ability ${this.ability}`
+            }
+            if (loadStatus == "secondClue"){
+                return `The Pokemon weighs ${this.weight} Pokegrams`
+            }
+            if (loadStatus == "thirdClue"){
+                return `The Pokemon weighs ${this.height} Pokegrams`
+            }
+        }
+    
     }
+
     
     
-    
-    // const pokeapiUrl = `https://pokeapi.co/api/v2/pokemon/${(Math.floor(Math.random() * 151) + 1).toString()}`; // Generates a random pokemon id from the API
-    
+
     const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
     pokeSelection === "electrode" ? apiUrl = `${baseUrl}${pokeSelection}` : apiUrl = `${baseUrl}${(Math.floor(Math.random() * 151) + 1).toString()}`;
     
@@ -153,22 +110,22 @@ function doFetch(pokeSelection){
                                 data.abilities[0].ability.name,
                                 data.weight,
                                 data.height)
-        gameStatus = "firstclueloaded"                        
+                                
+                                
+        gameStatus = "firstclueloaded"            
+        
         console.log("Fetch successful")
+        loadStatus = "secondClue";
+        console.log(pokemonToGuess.getClue());
     })
     .catch(function(error) {
         console.log('There has been a problem with your fetch operation: ', error.message);
     });
     
-    
-    
-    
+
     
 
 }
-
-
-
 
 
 function viewResults(){
@@ -178,33 +135,3 @@ function viewResults(){
     screenOutput.textContent = `The name of the pokemon is ${pokemonToGuess.name}, the height is ${pokemonToGuess.height} and the game status is ${gameStatus}`;
     
 }
-
-
-
-
-
-// function getElectrode() {
-
-//     let pokeapiUrl = "https://pokeapi.co/api/v2/pokemon/electrode"
-
-//     console.log(pokeapiUrl);
-
-//     $.getJSON(pokeapiUrl).done(function(data) {
-//         console.log(data);
-
-//         frontImage = data.sprites.front_default;
-//         console.log(frontImage)
-
-//         $("#loading-image").empty();
-
-//         $('#loading-image').prepend("<img id='img1' src=" + frontImage + "></img>")
-
-
-//     }).fail(function() {
-//         console.log("Request to Pokeapi failed.")
-//     }).always(function() {
-//         console.log("Request to Pokeapi was successful.");
-//         gameStatus = "loadingcompleted"
-//     });
-
-// }
