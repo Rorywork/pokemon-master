@@ -20,13 +20,13 @@ class Pokemon {
 
 
 
-document.getElementById('button1').addEventListener('click', clicked);
+document.getElementById('button1').addEventListener('click', pokemonImage);
 
 
 
 
 
-function clicked(){
+function pokemonImage(){
     
     let imageRequired = "front"
     let elem = document.createElement("img");
