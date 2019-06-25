@@ -2,9 +2,7 @@
 
 // This is the Pokemon object which will be used in the program
 
-
-
-
+var apiReturn;
 
 class Pokemon {
     constructor(id,name,frontImage, backImage, type, ability, weight, height) {
@@ -17,15 +15,17 @@ class Pokemon {
             this.weight = weight;
             this.height = height;
     }
-    getImageUrl() {
-        return this.frontImage();
+    getImageFront() {
+        return this.frontImage;
     }
-    
+    getImageBack() {
+        return this.backImage;
+    }
     getWeight() {
-        return this.weight();
+        return this.weight;
     }
     getAbility() {
-        return this.ability();
+        return this.ability;
     }
 }
 
@@ -34,14 +34,15 @@ document.getElementById('button2').addEventListener('click', clue);
 document.getElementById('button3').addEventListener('click', textOnScreen);
 document.getElementById('button4').addEventListener('click', getApi);
 
+document.getElementById('A-Button').addEventListener('click', function(){
+    textOnScreen("off");
+}, false);
+
 
 function getApi(selectApi){
     
     const baseUrl = "https://pokeapi.co/api/v2/pokemon/"
     selectApi === "electrode" ? apiUrl = `${baseUrl}${selectApi}` : apiUrl = `${baseUrl}${(Math.floor(Math.random() * 151) + 1).toString()}`;
-    
-    // apiUrl = outcome of that if statement
-    
     
     fetch(apiUrl)
     .then(results => { return results.json();
@@ -69,28 +70,16 @@ function getApi(selectApi){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function textOnScreen() {
+function textOnScreen(gameState) {
     
-    let gameState = "off";
-    
+    console.log(gameState);
     switch (gameState) {
         case "off":
             console.log("Loading Pokemon Master");
+            document.getElementById("text").innerHTML = "Loading Pokemon Master";
+            getApi("electrode")
+
+            // console.log(apiReturn.getImageFront());
             break;
             
         case "loading-screen":
@@ -111,19 +100,21 @@ function textOnScreen() {
             
     }
 
+            console.log(apiReturn.getImageFront());
+
 }
     
 
 
 
 
-function pokemonImage(){
+function pokemonImage(imageRequired, url){
     
-    let imageRequired = "front"
+
     let elem = document.createElement("img");
-    document.getElementById("image-placeholder").appendChild(elem);
+    document.getElementById("image").appendChild(elem);
     
-    imageRequired === "front" ? elem.src = 'https://pbs.twimg.com/profile_images/653700295395016708/WjGTnKGQ_400x400.png' : elem.src = 'https://cdn.pixabay.com/photo/2018/12/04/22/38/road-3856796__340.jpg';
+    imageRequired === "front" ? elem.src = 'https://cdn.pixabay.com/photo/2018/12/04/22/38/road-3856796__340.jpg' : elem.src = 'https://cdn.pixabay.com/photo/2018/12/04/22/38/road-3856796__340.jpg';
 }
 
 
