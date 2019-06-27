@@ -94,31 +94,31 @@ header{
 
 .screen{
     margin: 5% 15% 0% 15%;
-    height: 80%;
+    height: 81%;
     background-color: #b2f700;
 }
 
 .offScreen{
     margin: 5% 15% 0% 15%;
-    height: 80%;
-    background-color: red;
+    height: 81%;
+    background-color: #356152;
 }
 
 /*Combined from other test pages*/
 
 
 .scoreRow{
-    height: 100px;
+    height: 40px;
     border: 1px solid black;
 }
 
 .gameRow{
-    height: 100px;
+    height: 158px;
     border: 1px solid black;
 }
 
 .instructionRow{
-    height: 100px;
+    height: 90px;
     border: 1px solid black;
 }
 
