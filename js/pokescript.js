@@ -6,6 +6,60 @@
 //     $('.preloader').addClass('complete')
 // })
 
+//----------------------------------------
+var apiReturn;
+var gameState = "off";
+//----------------------------------------
+
+class Pokemon {
+    constructor(id,name,frontImage, backImage, type, ability, weight, height) {
+            this.id = id;
+            this.name = name;
+            this.frontImage = frontImage;
+            this.backImage = backImage;
+            this.type = type;
+            this.ability = ability;
+            this.weight = weight;
+            this.height = height;
+    }
+    getImageFront() {
+        return this.frontImage;
+    }
+    getImageBack() {
+        return this.backImage;
+    }
+    getWeight() {
+        return this.weight;
+    }
+    getAbility() {
+        return this.ability;
+    }
+    getType() {
+        return this.type;
+    }
+}
+
+//----------------------------------------
+
+
+
+
+function buttonOnOffHandler(){
+    
+    
+    if(document.getElementById("checkboxSwitch").checked){
+
+        console.log('on');        
+        document.getElementById("gameboyScreen").className = "screen";
+        
+    } else{
+        document.getElementById("gameboyScreen").className = "offScreen";
+    }
+    
+}
+
+
+
 
 
 

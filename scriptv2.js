@@ -3,6 +3,7 @@
 // This is the Pokemon object which will be used in the program
 
 var apiReturn;
+var gameState = "off";
 
 class Pokemon {
     constructor(id,name,frontImage, backImage, type, ability, weight, height) {
@@ -27,15 +28,57 @@ class Pokemon {
     getAbility() {
         return this.ability;
     }
+    getType() {
+        return this.type;
+    }
 }
 
+document.getElementById('A-Button').addEventListener('click', function(){
+    console.log(gameState);
+    textOnScreen(gameState);
+}, false);
+
+
+document.getElementById('C-Button').addEventListener('click', function(){
+    textOnScreen(gameState);
+}, false);
+
+// Capturing the keyboard arrow keys 
+document.addEventListener('keydown', function(event) {
+  if (event.code == 'ArrowUp' ) {
+    alert('Up arrow')
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.code == 'ArrowDown' ) {
+    alert('Down arrow')
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.code == 'ArrowLeft' ) {
+    alert('Left arrow')
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.code == 'ArrowRight' ) {
+    alert('Right arrow')
+  }
+});
+//-----------------------------------------
+
+
+
+
 document.getElementById('button1').addEventListener('click', pokemonImage);
-document.getElementById('button2').addEventListener('click', clue);
-document.getElementById('button3').addEventListener('click', textOnScreen);
+
+// document.getElementById('button3').addEventListener('click', textOnScreen("loading-screen"));
 document.getElementById('button4').addEventListener('click', getApi);
 
-document.getElementById('A-Button').addEventListener('click', function(){
-    textOnScreen("off");
+document.getElementById('button3').addEventListener('click', function(){
+    textOnScreen("loading-screen");
 }, false);
 
 
@@ -70,38 +113,48 @@ function getApi(selectApi){
 }
 
 
-function textOnScreen(gameState) {
+function textOnScreen(gameStatus) {
     
-    console.log(gameState);
-    switch (gameState) {
+    console.log(`The game state is ${gameStatus}`);
+    switch (gameStatus) {
         case "off":
-            console.log("Loading Pokemon Master");
             document.getElementById("text").innerHTML = "Loading Pokemon Master";
-            getApi("electrode")
+            let elem = document.createElement("img");
+            document.getElementById("image").appendChild(elem);
+                elem.src = apiReturn.getImageFront();
+                gameState = "loading-screen";
 
-            // console.log(apiReturn.getImageFront());
             break;
             
         case "loading-screen":
-            console.log("These are the instructions for the game");   
+                document.getElementById("text").innerHTML = "Here are the instructions on how to play the game. The back of a pokemon will appear on screen, press the B button to get clues about the pokemon, when you are ready to guess press the A button";
+                getApi();
+                gameState = "instructions-screen";
             break;
             
         case "instructions-screen":
-            console.log("This is a picture of the Pokemon from behind and the first clue");   
+            
+            console.log(apiReturn.getImageFront());
+            document.querySelector("img").src=apiReturn.getImageBack();
+            gameState = "first-clue-screen"
             break;
             
         case "first-clue-screen":
-            console.log("This is the second clue");   
+            document.getElementById("text").innerHTML = `The Pokemon has is a ${apiReturn.getType()} Pokemon.`;
+            gameState = "second-clue-screen"    
             break;
             
         case "second-clue-screen":
-            console.log("This is the third clue");   
+            document.getElementById("text").innerHTML = `The Pokemon has the ability ${apiReturn.getAbility()}`;
+            gameState = "third-clue-screen"
+            break;
+            
+        case "third-clue-screen":
+            document.getElementById("text").innerHTML = `The Pokemon weighs ${apiReturn.getWeight()} Pokegrams`;
+            gameState = "next-screen"
             break;
             
     }
-
-            console.log(apiReturn.getImageFront());
-
 }
     
 
@@ -118,10 +171,28 @@ function pokemonImage(imageRequired, url){
 }
 
 
-function clue(){
+
+function createImage(){
     
-    console.log("clicked");
+    let elem = document.createElement("img");
+    document.getElementById("image").appendChild(elem);
+    
+    if(gameState === "off" || gameState === "loading-screen"){
+        
+        elem.src = apiReturn.getImageFront();
+        
+    }else{
+        
+        console.log(apiReturn.getImageFront());
+        document.querySelector("img").src=apiReturn.getImageFront();
+        // im.src=apiReturn.getImageFront();
+        // elem.src = apiReturn.getImageFront();
+    }
+
 }
+
+
+
 
 
 
