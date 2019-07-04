@@ -1,12 +1,13 @@
 //----------------------------------------
-var apiReturn;
-var gameState = "off";
-var looper;
-var degrees = 0;
-var numAnswers = 5; // How many possible answers to display
-var candidateAnswerPokemonNames = []; // Initialise array for Pokemon names
-var ansHighlightPos // Answer list highlight position 
-var userScore;
+// Global variables used across multiple functions in the code
+let apiReturn;
+let gameState = "off";
+let looper;
+let degrees = 0;
+let numAnswers = 5; // How many possible answers to display
+let candidateAnswerPokemonNames = []; // Initialise array for Pokemon names
+let ansHighlightPos // Answer list highlight position 
+let userScore;
 //----------------------------------------
 
 // Define Pokemon object to store key details from API calls.
@@ -180,15 +181,17 @@ function listUp() {
 function checkAnswer() {
 
     let isCorrect = ((apiReturn.name == candidateAnswerPokemonNames[ansHighlightPos - 1]) ? 'correct' : 'incorrect');
-    document.getElementById("mainBody").innerHTML = `You selected ${candidateAnswerPokemonNames[ansHighlightPos - 1]}. That is ${isCorrect} click A to reveal Pokemon.`;
+    document.getElementById("mainBody").innerHTML = `You selected ${candidateAnswerPokemonNames[ansHighlightPos - 1]}. That is ${isCorrect}.`;
 
     if (apiReturn.name == candidateAnswerPokemonNames[ansHighlightPos - 1]) {
+        document.getElementById("mainBody").innerHTML += ` Click A to reveal ${apiReturn.name} from the front.`;
         userScore++;
         document.getElementById("scoreScreen").innerHTML = `${userScore} points.`;
-        //document.querySelector("img").src = apiReturn.frontImage;
         gameState = "next-pokemon";
     } else {
         document.getElementById("scoreScreen").innerHTML = `You scored ${userScore} points. Click A to play again.`;
+        document.getElementById("mainBody").innerHTML += ` The right answer is ${apiReturn.name}`;
+        document.querySelector("img").src = apiReturn.frontImage;
         userScore = 0
         gameState = "loading-screen";
     }
@@ -245,7 +248,7 @@ function buttonAHandler() {
         case "loading-screen":
             document.getElementById("scoreScreen").innerHTML = "";
             rotateAnimation("pokeImage", 10);
-            document.getElementById("mainBody").innerHTML = "Here are the instructions on how to play the game. The back of a pokemon will appear on screen, press the A button to get clues about the pokemon, when you are ready to guess press the B button";
+            document.getElementById("mainBody").innerHTML = "Here are the instructions on how to play the game. The back of a pokemon will appear on screen, press the A button to get clues about the pokemon, when you are ready to guess press the B button<br><br> Now press A button to start the game.";
             getApi();
             gameState = "instructions-screen";
             break;
@@ -258,18 +261,18 @@ function buttonAHandler() {
                 gameState = "instructions-screen";
                 break;
                 
-                case "instructions-screen":
-                    document.getElementById("mainBody").innerHTML = `Below is the image of a pokemon from the back. Can you guess which one it is?`;
-                    document.getElementById("pokeImage").src = apiReturn.backImage;
-                    gameState = "first-clue-screen"
-                    break;
+            case "instructions-screen":
+                document.getElementById("mainBody").innerHTML = `Below is the image of a pokemon from the back. Can you guess which one it is?`;
+                document.getElementById("pokeImage").src = apiReturn.backImage;
+                gameState = "first-clue-screen"
+                break;
                     
-                    case "first-clue-screen":
-                        document.getElementById("mainBody").innerHTML = `The Pokemon is a ${apiReturn.type} Pokemon.`;
-                        gameState = "second-clue-screen"
-                        break;
+            case "first-clue-screen":
+                document.getElementById("mainBody").innerHTML = `The Pokemon is a ${apiReturn.type} Pokemon.`;
+                gameState = "second-clue-screen"
+                break;
                         
-                        case "second-clue-screen":
+            case "second-clue-screen":
             document.getElementById("mainBody").innerHTML = `The Pokemon has the ability ${apiReturn.ability}`;
             gameState = "third-clue-screen"
             break;
