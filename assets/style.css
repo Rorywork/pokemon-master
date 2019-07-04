@@ -26,7 +26,6 @@ body{
     max-width: 684px;
     height: 900px;
     margin: 0 auto;
-
 }
 
 .top-controls-gameboy{
@@ -67,17 +66,17 @@ body{
 
 .scoreRow{
     height: 40px;
-    border: 1px solid black;
+
 }
 
 .gameRow{
     height: 158px;
-    border: 1px solid black;
+
 }
 
 .instructionRow{
     height: 90px;
-    border: 1px solid black;
+
 }
 
 
