@@ -66,22 +66,15 @@ body{
 
 .scoreRow{
     height: 35px;
-
 }
 
 .gameRow{
     height: 153px;
-
 }
 
 .instructionRow{
     height: 100px;
-
 }
-
-
-
-
 
 #nintendo-logo{
     margin-top: 1%;
@@ -151,13 +144,13 @@ body{
     border-radius: 100%;
 }
 
-#a-button{
+.a-button{
     border-radius: 60%;
     background-color: #994a50;
     height: 60px;
 }
 
-#b-button{
+.b-button{
     border-radius: 60%;
     background-color: #994a50;
     height: 60px;
