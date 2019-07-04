@@ -2,11 +2,10 @@ html {
     height: 100%;
   }
 
-
-
 body{
-	background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url("https://wallpaperplay.com/walls/full/6/3/7/58401.jpg");
-	background-position: center;
+    min-height: 100%;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url("https://wallpaperplay.com/walls/full/6/3/7/58401.jpg");
+    background-position: center;
     color: black;
     font-size: 14px;
     font-smooth: never;
