@@ -1,474 +1,301 @@
-/* global $ */
-
-// Preloader
-
-// $(window).on('load', function() {
-//     $('.preloader').addClass('complete')
-// })
-
 //----------------------------------------
 var apiReturn;
 var gameState = "off";
-//----------------------------------------
-
-class Pokemon {
-    constructor(id,name,frontImage, backImage, type, ability, weight, height) {
-            this.id = id;
-            this.name = name;
-            this.frontImage = frontImage;
-            this.backImage = backImage;
-            this.type = type;
-            this.ability = ability;
-            this.weight = weight;
-            this.height = height;
-    }
-    getImageFront() {
-        return this.frontImage;
-    }
-    getImageBack() {
-        return this.backImage;
-    }
-    getWeight() {
-        return this.weight;
-    }
-    getAbility() {
-        return this.ability;
-    }
-    getType() {
-        return this.type;
-    }
-}
-
-//----------------------------------------
-
-
-
-
-function buttonOnOffHandler(){
-    
-    
-    if(document.getElementById("checkboxSwitch").checked){
-
-        console.log('on');        
-        document.getElementById("gameboyScreen").className = "screen";
-        
-    } else{
-        document.getElementById("gameboyScreen").className = "offScreen";
-    }
-    
-}
-
-
-
-
-
-
-
-var selectedPokemon // Initialise variable to hold random Pokemon ID
-
-var name
-
-var frontImage
-
-var backImage
-
-var typeOfPokemon
-
-var abilityOne
-
-var weight
-
 var looper;
-
 var degrees = 0;
-
 var numAnswers = 5; // How many possible answers to display
-
 var candidateAnswerPokemonNames = []; // Initialise array for Pokemon names
-
 var ansHighlightPos // Answer list highlight position 
-
 var userScore;
+//----------------------------------------
 
-var gameStatus = ""; // Holds the status of the game i.e what page/section it is on
+// Define Pokemon object to store key details from API calls.
+class Pokemon {
+    constructor(id, name, frontImage, backImage, type, ability, weight, height) {
+        this.id = id;
+        this.name = name;
+        this.frontImage = frontImage;
+        this.backImage = backImage;
+        this.type = type;
+        this.ability = ability;
+        this.weight = weight;
+        this.height = height;
+    }
+    getName() {
+        return this.name.charAt(0).toUpperCase() + this.name.slice(1); // String manipulation to Capitalise Pokemon name
+    }
+}
 
+// Event listeners for the two Red buttons
+document.getElementById('A-Button').addEventListener('click', function () {
+    console.log(gameState);
+    buttonAHandler();
+}, false);
 
+document.getElementById('B-Button').addEventListener('click', function () {
+    console.log(gameState);
+    buttonBHandler();
+}, false);
 
-
-
-
-
-
-
-// A $( document ).ready() block.
-$(document).ready(function() {
-    console.log("ready!");
-
+// Event listeners for keyboard arrow keys and Enter as alternatives to onscreen arrow keys to select the correct answer - checking that it can only be invoked on the correct gameState
+document.addEventListener('keydown', function (event) {
+    if (event.code == 'ArrowUp' && gameState == "selecting-answer") {
+        listUp()
+    }
+});
+document.addEventListener('keydown', function (event) {
+    if (event.code == 'ArrowDown' && gameState == "selecting-answer") {
+        listDown();
+    }
+});
+document.addEventListener('keydown', function (event) {
+    if (event.code == 'ArrowLeft' && gameState == "selecting-answer") {
+        listUp();
+    }
+});
+document.addEventListener('keydown', function (event) {
+    if (event.code == 'ArrowRight' && gameState == "selecting-answer") {
+        listDown();
+    }
+});
+document.addEventListener('keydown', function (event) {
+    if (event.code == 'Enter' && gameState == "selecting-answer") {
+        checkAnswer();
+    }
 });
 
 
+function buttonOnOffHandler() {
 
+    if (document.getElementById("checkboxSwitch").checked) {
+        getApi('101');  // Id for electrode is 101 
+        document.getElementById("gameboyScreen").className = "screen";
 
-function firstClue() {
-
-    let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon/${(Math.floor(Math.random() * 151) + 1).toString()}`; // Generates a random pokemon id from the API
-    $("#scoreScreen").empty();
-    $("#mainBody").empty();
-
-    writeText(" Below is an image from the back of the Pokemon that you have to guess... Click A if you need another clue.")
-
-    console.log(pokeapiUrl);
-
-    $.getJSON(pokeapiUrl).done(function(data) {
-        console.log(data);
-
-        selectedPokemon = data.id;
-        console.log(selectedPokemon);
-
-        name = data.species.name.charAt(0).toUpperCase() + data.species.name.slice(1);
-        console.log(name);
-
-        frontImage = data.sprites.front_default;
-        console.log(frontImage)
-
-        backImage = data.sprites.back_default;
-
-        typeOfPokemon = data.types[0].type.name;
-        console.log(typeOfPokemon);
-
-        abilityOne = data.abilities[0].ability.name;
-        console.log(abilityOne);
-
-        weight = data.weight;
-        console.log(weight);
-
-        backImagePokemon();
-    }).fail(function() {
-        console.log("Request to Pokeapi failed.")
-    }).always(function() {
-        console.log("Request to Pokeapi was successful.");
-        gameStatus = "firstclueloaded"
-    });
-
+    } else { // Simulate switching off the Gameboy
+        // Reset variables
+        gameState = "off";
+        userScore = 0;
+        // Clear contents from screen
+        document.getElementById("scoreScreen").innerHTML = "";
+        document.getElementById("mainBody").innerHTML = "";
+        let elem = document.getElementById("pokeImage");
+        if (elem != null) {
+            document.getElementById("image").removeChild(elem);
+        }
+        document.getElementById("gameboyScreen").className = "offScreen";
+    }
 }
-
-
-
-function frontImagePokemon() {
-
-    let frontSprite = $("<div>").html("<img src=" + frontImage + "></img>");
-    frontSprite.appendTo("#front-image-div");
-    console.log(frontImage)
-
-
-}
-
-function backImagePokemon() {
-
-    let backSprite = $("<div>").html("<img src=" + backImage + "></img>");
-
-    $("#loading-image").empty();
-
-    backSprite.appendTo("#loading-image");
-    console.log(backImage)
-
-
-}
-
-function secondClue() {
-
-    let pokemonType = $("<p>").html(`This is a ${typeOfPokemon} Pokemon. Click A if you need another clue.`)
-    $("#mainBody").empty();
-    pokemonType.appendTo("#mainBody");
-
-    gameStatus = "secondclueloaded"
-
-
-}
-
-function thirdClue() {
-
-    let pokemonAbility = $("<p>").html(`This Pokemon has the ability ${abilityOne}. Click A if you need another clue.`)
-    pokemonAbility.appendTo("#mainBody");
-
-    gameStatus = "thirdclueloaded"
-
-}
-
-function fourthClue() {
-
-    let pokemonWeight = $("<p>").html(`This Pokemon weighs ${weight} Pokegrams. That is all the clues. Now you need to choose the Pokemon by pressing button B`)
-    pokemonWeight.appendTo("#mainBody");
-
-    gameStatus = "fourthclueloaded"
-
-}
-
-
-
-function getPokedex() {
-
-    // get the list of Pokemon
-    var pokeapiURL = "https://pokeapi.co/api/v2/generation/1";
-
-    $.getJSON(pokeapiURL).done(function(data) {
-        console.log(data);
-        // if required data element is an array then loop through each of the entries
-
-
-
-        $.each(data.pokemon_species, function(index, pokemon) {
-            console.log(pokemon.name);
-            var name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1); // String manipulation to Capitalise
-            var url = pokemon.url;
-            // get the Index of the specific Pokemon via substring on the url loking for pos "s/" and final "/"
-            var pIndex = url.substring(
-                url.lastIndexOf("s/") + 2,
-                url.lastIndexOf("/")
-            );
-            var pokedex = $("<p>").html(`Pokemon is ${name}`)
-            pokedex.appendTo("#pokedex-div");
-        });
-    });
-}
-
-
 
 function getRandomCandidateAnswers() {
 
-    var pokemonAnswerIDs = []; // Initialise array to generate random pokemon IDs
+    let pokemonAnswerIDs = []; // Initialise array to generate random pokemon IDs
 
     // Loop numAnswers - 1 times to populate array. (minus 1 to accomodate an element for the correct answer)
     for (i = 0; i < numAnswers - 1; i++) {
 
-        var candidateAnswerID = Math.floor(Math.random() * 151) + 1;
-        pokemonAnswerIDs.indexOf(candidateAnswerID) === -1 && candidateAnswerID != selectedPokemon ? pokemonAnswerIDs.push(candidateAnswerID) : i--;
+        const candidateAnswerID = Math.floor(Math.random() * 151) + 1;
+        pokemonAnswerIDs.indexOf(candidateAnswerID) === -1 && candidateAnswerID != apiReturn.id ? pokemonAnswerIDs.push(candidateAnswerID) : i--;
     }
 
     // Finally add the correct Pokemon ID to the array
-    pokemonAnswerIDs.push(selectedPokemon);
+    pokemonAnswerIDs.push(apiReturn.id);
 
-    console.log(pokemonAnswerIDs);
+    console.log(`The indexes of the possible answers are ${pokemonAnswerIDs}`);
 
     // Code to build array of possible answers from the API pokemon names seleced from the random IDs above
-
-    var pokeapiURL = "https://pokeapi.co/api/v2/generation/1"; // API call to return full Pokedex
-
-
-    // JSON execute to return API data to variable data
-    $.getJSON(pokeapiURL).done(function(data) {
-        //console.log(data);
-
-        // Loop through species element to retrieve Pokemon name and unique url       
-        $.each(data.pokemon_species, function(index, pokemon) {
-            var name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1); // String manipulation to Capitalise Pokemon name
-            var url = pokemon.url;
-            // get the Index of the specific Pokemon via substring on the url looking for pos "s/" and final "/"
-            var pIndex = url.substring(
-                url.lastIndexOf("s/") + 2,
-                url.lastIndexOf("/")
-            );
-
-            // If the PokemonAnswerIDs array contains the current pIndex from the API call, then push the name onto the array
-
-            pokemonAnswerIDs.indexOf(parseInt(pIndex)) >= 0 ? candidateAnswerPokemonNames.push(name) : console.log();
-        });
-
-        console.log(candidateAnswerPokemonNames);
-
-        ansHighlightPos = 1;
-
-        $("#mainBody").empty();
-
-        var listHtml = "<ul class='navmenu'>";
-
-        $.each(candidateAnswerPokemonNames, function(index, pokemonName) {
-            listHtml += "<li id='listPos" + (index + 1).toString() + "'><a href='#'>" + pokemonName + "</a></li>";
-        });
-
-        listHtml += '</ul>';
-        $('#mainBody').append(listHtml);
-
-        $('.navmenu').on('click', 'li', function() {
-            $('.navmenu li.active').removeClass('active');
-            $(this).addClass('active');
+    const pokeapiURL = "https://pokeapi.co/api/v2/generation/1"; // API call to return full Pokedex
+    // Fetch execute to return API data as JSON to variable data
+    fetch(pokeapiURL)
+        .then(results => {
+            return results.json();
         })
+        .then(data => {
+            console.log(data);
+            //console.log(data.pokemon_species[1]);
 
-        $("#listPos1").css("background-color", "#555");
+            // Loop through species element to retrieve Pokemon name and unique url       
+            data.pokemon_species.forEach(function (pokemon, index) {
+                //console.log(pokemon.name);
+                let name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1); // String manipulation to Capitalise Pokemon name
+                let url = pokemon.url;
+                // get the Index of the specific Pokemon via substring on the url looking for pos "s/" and final "/"
+                let pIndex = url.substring(
+                    url.lastIndexOf("s/") + 2,
+                    url.lastIndexOf("/")
+                );
+                // If the PokemonAnswerIDs array contains the current pIndex from the API call, then push the name onto the array
+                pokemonAnswerIDs.indexOf(parseInt(pIndex)) >= 0 ? candidateAnswerPokemonNames.push(name) : console.log();
+            });
 
+            console.log(`The names of the possible answers are ${candidateAnswerPokemonNames}`);
 
-    }).fail(function() {
-        console.log("Request to Pokeapi failed.")
-    }).always(function() {
-        console.log("Request to Pokeapi was successful.");
-        gameStatus = "answerlist"
-    });
+            ansHighlightPos = 1; // Initialise the position of the highlighted answer
 
-}
+            document.getElementById("mainBody").innerHTML = ""; // Clear the current contents of the main body
 
+            // Cycle through candidate answers and dynamically populate the ul with li name entries
+            let listHtml = "<ul class='navmenu'>";
+            candidateAnswerPokemonNames.forEach(function (pokemonName, index) {
+                listHtml += "<li id='listPos" + (index + 1).toString() + "'><a href='#'>" + pokemonName + "</a></li>";
+            });
+            listHtml += '</ul>';
+            document.getElementById('mainBody').innerHTML = listHtml; //Add the ul block to the DOM
 
-function getElectrode() {
+            // Set the initial li element to be highlighted
+            document.getElementById("listPos1").setAttribute("style", "background-color:#555;");
 
-    let pokeapiUrl = "https://pokeapi.co/api/v2/pokemon/electrode"
-
-    console.log(pokeapiUrl);
-
-    $.getJSON(pokeapiUrl).done(function(data) {
-        console.log(data);
-
-        frontImage = data.sprites.front_default;
-        console.log(frontImage)
-
-        $("#loading-image").empty();
-
-        $('#loading-image').prepend("<img id='img1' src=" + frontImage + "></img>")
-
-
-    }).fail(function() {
-        console.log("Request to Pokeapi failed.")
-    }).always(function() {
-        console.log("Request to Pokeapi was successful.");
-        gameStatus = "loadingcompleted"
-    });
-
-}
-
-function writeText(message) {
-
-    let screenMessage = $("<p>").html(message)
-
-    $("#mainBody").empty();
-
-    screenMessage.appendTo("#mainBody")
-}
-
-function loadingScreen() {
-
-    console.log("Testing")
-
-    writeText("Loading....");
-    getElectrode();
-    userScore = 0;
-    gameStatus = "loadingcompleted"
-
+            console.log("Fetch successful")
+        })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ', error.message);
+        });
 }
 
 function rotateAnimation(el, speed) {
 
-    var elem = document.getElementById(el);
-
-        elem.style.transform = "rotate(" + degrees + "deg)";
-        
+    clearTimeout(looper);
+    let elem = document.getElementById(el);
+    elem.style.transform = "rotate(" + degrees + "deg)";
     looper = setTimeout('rotateAnimation(\'' + el + '\',' + speed + ')', speed);
     degrees++;
     if (degrees > 359) {
         degrees = 1;
     }
-
-}
-
-
-
-function showGameInstructions() {
-
-    $("#scoreScreen").empty();
-
-    rotateAnimation('img1', 10);
-    writeText('Here are the instructions on how to play the game. The back of a pokemon will appear on screen, press the B button to get clues about the pokemon, when you are ready to guess press the A button')
-    gameStatus = "instructionsloaded"
 }
 
 function listDown() {
-    $("#listPos" + ansHighlightPos.toString()).css("background-color", "#f1f1f1");
+    document.getElementById("listPos" + ansHighlightPos.toString()).setAttribute("style", "background-color:#b2f700");
     ansHighlightPos++;
     if (ansHighlightPos == numAnswers + 1) ansHighlightPos = 1;
-    $("#listPos" + ansHighlightPos.toString()).css("background-color", "#555");
+    document.getElementById("listPos" + ansHighlightPos.toString()).setAttribute("style", "background-color:#555");
 }
 
 function listUp() {
-    $("#listPos" + ansHighlightPos.toString()).css("background-color", "#f1f1f1");
+    document.getElementById("listPos" + ansHighlightPos.toString()).setAttribute("style", "background-color:#b2f700");
     ansHighlightPos--;
     if (ansHighlightPos == 0) ansHighlightPos = numAnswers;
-    $("#listPos" + ansHighlightPos.toString()).css("background-color", "#555");
+    document.getElementById("listPos" + ansHighlightPos.toString()).setAttribute("style", "background-color:#555");
 }
-
 
 function checkAnswer() {
 
-    var isCorrect = ((name == candidateAnswerPokemonNames[ansHighlightPos - 1]) ? 'correct' : 'incorrect');
-    $("#mainBody").empty();
-    writeText("You selected " + candidateAnswerPokemonNames[ansHighlightPos - 1] + ". That is " + isCorrect);
+    let isCorrect = ((apiReturn.name == candidateAnswerPokemonNames[ansHighlightPos - 1]) ? 'correct' : 'incorrect');
+    document.getElementById("mainBody").innerHTML = `You selected ${candidateAnswerPokemonNames[ansHighlightPos - 1]}. That is ${isCorrect} click A to reveal Pokemon.`;
 
-    $("#scoreScreen").empty();
-
-
-    if (name == candidateAnswerPokemonNames[ansHighlightPos - 1]) {
+    if (apiReturn.name == candidateAnswerPokemonNames[ansHighlightPos - 1]) {
         userScore++;
-        var screenScore = $("<p>").html(`${userScore} points. Click A for next pokemon`)
-        screenScore.appendTo("#scoreScreen");
-        gameStatus = "instructionsloaded";
-    }
-    else {
-        var screenScore = $("<p>").html(`Game over you scored ${userScore} points. Click A to play again.`)
-        screenScore.appendTo("#scoreScreen");
+        document.getElementById("scoreScreen").innerHTML = `${userScore} points.`;
+        //document.querySelector("img").src = apiReturn.frontImage;
+        gameState = "next-pokemon";
+    } else {
+        document.getElementById("scoreScreen").innerHTML = `You scored ${userScore} points. Click A to play again.`;
         userScore = 0
-        gameStatus = "instructionsloaded";
+        gameState = "loading-screen";
     }
-
     candidateAnswerPokemonNames = []; // Reset the array of possible answers
+}
 
+function getApi(selectApi) {
+
+    const baseUrl = "https://pokeapi.co/api/v2/pokemon/"
+    selectApi === "101" ? apiUrl = `${baseUrl}${selectApi}` : apiUrl = `${baseUrl}${(Math.floor(Math.random() * 151) + 1).toString()}`;
+
+    fetch(apiUrl)
+        .then(results => {
+            return results.json();
+        })
+        .then(data => {
+
+            console.log(data);
+
+            apiReturn = new Pokemon(
+                data.id,
+                data.species.name.charAt(0).toUpperCase() + data.species.name.slice(1),
+                data.sprites.front_default,
+                data.sprites.back_default,
+                data.types[0].type.name,
+                data.abilities[0].ability.name,
+                data.weight,
+                data.height)
+
+            console.log("Fetch successful")
+
+        })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ', error.message);
+        });
 }
 
 function buttonAHandler() {
 
-    console.log(gameStatus);
-    if (gameStatus == "") {
+    if (document.getElementById("checkboxSwitch").checked) {
 
-        loadingScreen();
+    console.log(`The game state is ${gameState}`);
+    switch (gameState) {
+        case "off":
+            document.getElementById("mainBody").innerHTML = "Loading Pokemon Master";
+            let elem = document.createElement("img");
+            elem.setAttribute('id', 'pokeImage');
+            document.getElementById("image").appendChild(elem);
+            elem.src = apiReturn.frontImage;
+            gameState = "loading-screen";
+            userScore = 0;
+            break;
 
+        case "loading-screen":
+            document.getElementById("scoreScreen").innerHTML = "";
+            rotateAnimation("pokeImage", 10);
+            document.getElementById("mainBody").innerHTML = "Here are the instructions on how to play the game. The back of a pokemon will appear on screen, press the A button to get clues about the pokemon, when you are ready to guess press the B button";
+            getApi();
+            gameState = "instructions-screen";
+            break;
+            
+            case "next-pokemon":
+                document.querySelector("img").src = apiReturn.frontImage;
+                rotateAnimation("pokeImage", 10);
+                document.getElementById("mainBody").innerHTML = "Click A for the next Pokemon";
+                getApi();
+                gameState = "instructions-screen";
+                break;
+                
+                case "instructions-screen":
+                    document.getElementById("mainBody").innerHTML = `Below is the image of a pokemon from the back. Can you guess which one it is?`;
+                    document.getElementById("pokeImage").src = apiReturn.backImage;
+                    gameState = "first-clue-screen"
+                    break;
+                    
+                    case "first-clue-screen":
+                        document.getElementById("mainBody").innerHTML = `The Pokemon is a ${apiReturn.type} Pokemon.`;
+                        gameState = "second-clue-screen"
+                        break;
+                        
+                        case "second-clue-screen":
+            document.getElementById("mainBody").innerHTML = `The Pokemon has the ability ${apiReturn.ability}`;
+            gameState = "third-clue-screen"
+            break;
+
+        case "third-clue-screen":
+            document.getElementById("mainBody").innerHTML = `The Pokemon weighs ${apiReturn.weight} Pokegrams`;
+            gameState = "must-answer-screen"
+            break;
+
+        case "must-answer-screen":
+            document.getElementById("mainBody").innerHTML = `There are no more clues. You must now guess the answer.`;
+            break;
+
+        case "selecting-answer":
+            checkAnswer();
+            break;
     }
 
-    else if (gameStatus == "loadingcompleted") {
-
-        showGameInstructions();
-
     }
-
-    else if (gameStatus == "instructionsloaded") {
-
-        firstClue();
-
-    }
-    else if (gameStatus == "firstclueloaded") {
-
-        secondClue();
-
-    }
-    else if (gameStatus == "secondclueloaded") {
-
-        thirdClue();
-
-    }
-    else if (gameStatus == "thirdclueloaded") {
-
-        fourthClue();
-
-    }
-    else if (gameStatus == "answerlist") {
-
-        checkAnswer();
-
-    }
-
-
 }
 
 function buttonBHandler() {
 
-    if (gameStatus == "firstclueloaded" || gameStatus == "secondclueloaded" || gameStatus == "thirdclueloaded" || gameStatus == "fourthclueloaded") {
-
+    if (gameState == "first-clue-screen" || gameState == "second-clue-screen" || gameState == "third-clue-screen" || gameState == "must-answer-screen") {
         getRandomCandidateAnswers();
-
+        gameState = "selecting-answer"
     }
 
 }
