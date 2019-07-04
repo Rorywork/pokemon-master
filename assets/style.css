@@ -148,12 +148,14 @@ body{
     border-radius: 60%;
     background-color: #994a50;
     height: 60px;
+    color: white;
 }
 
 .b-button{
     border-radius: 60%;
     background-color: #994a50;
     height: 60px;
+    color: white;
 }
 
 #start-buttons{
