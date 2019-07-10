@@ -14,7 +14,7 @@ body{
     background-image: repeating-linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url(https://wallpaperplay.com/walls/full/6/3/7/58401.jpg);
     background-attachment: fixed;
     color: #000;
-    font-size: 16px;
+    font-size: 10px;
     font-smooth: never;
     -webkit-font-smoothing: none;
     font-family: 'pokemon-font', monospace;
@@ -37,6 +37,14 @@ body{
 .top-controls-gameboy{
     background-color: #D8D9D4;
     height: 5%;
+}
+
+.help-button{
+    background-color: rgba(251, 253, 251, 0.863);
+    color: black;
+    height: 60px;
+    width: 100%;
+    border-style: none;
 }
 
 .grey-trim{
@@ -76,12 +84,12 @@ body{
 }
 
 .gameRow{
-    height: 153px;
+    height: 133px;
 
 }
 
 .instructionRow{
-    height: 100px;
+    height: 120px;
 
 }
 
@@ -160,6 +168,10 @@ body{
     color: white;
 
 }
+
+button:focus {
+    outline: none;
+  }
 
 .b-button{
     border-radius: 60%;
@@ -275,3 +287,50 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    font-size: 16px;
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #mew-image{
+    margin: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
