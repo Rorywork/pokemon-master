@@ -62,7 +62,16 @@ document.addEventListener('keydown', function (event) {
 document.addEventListener('keydown', function (event) {
     if (event.code == 'Enter' && gameState == "selecting-answer") {
         checkAnswer();
+    }        
+    if (event.code == 'Enter' && gameState != "selecting-answer") {
+        buttonAHandler();
+    }  
+});
+document.addEventListener('keydown', function (event) {
+    if (event.code == 'ShiftRight' || event.code == 'KeyB') {
+        buttonBHandler();
     }
+    
 });
 
 
