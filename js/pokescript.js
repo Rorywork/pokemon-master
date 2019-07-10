@@ -63,16 +63,16 @@ document.addEventListener('keydown', function (event) {
     if (event.code == 'Enter' && gameState == "selecting-answer") {
         checkAnswer();
     }        
-    if (event.code == 'Enter' && gameState != "selecting-answer") {
-        buttonAHandler();
-    }  
+    // if (event.code == 'Enter' && gameState != "selecting-answer") {
+    //     buttonAHandler();
+    // }  
 });
-document.addEventListener('keydown', function (event) {
-    if (event.code == 'ShiftRight' || event.code == 'KeyB') {
-        buttonBHandler();
-    }
+// document.addEventListener('keydown', function (event) {
+//     if (event.code == 'ShiftRight' || event.code == 'KeyB') {
+//         buttonBHandler();
+//     }
     
-});
+// });
 
 
 function buttonOnOffHandler() {
@@ -168,18 +168,6 @@ function getRandomCandidateAnswers() {
         });
 }
 
-function rotateAnimation(el, speed) {
-
-    clearTimeout(looper);
-    let elem = document.getElementById(el);
-    elem.style.transform = "rotate(" + degrees + "deg)";
-    looper = setTimeout('rotateAnimation(\'' + el + '\',' + speed + ')', speed);
-    degrees++;
-    if (degrees > 359) {
-        degrees = 1;
-    }
-}
-
 function listDown() {
     document.getElementById("listPos" + ansHighlightPos.toString()).setAttribute("style", "background-color:#b2f700");
     ansHighlightPos++;
@@ -256,6 +244,7 @@ function buttonAHandler() {
             let elem = document.createElement("img");
             elem.setAttribute('id', 'pokeImage');
             document.getElementById("image").appendChild(elem);
+            document.getElementById("pokeImage").classList.add("reg-pokemon");
             elem.src = apiReturn.frontImage;
             gameState = "loading-screen";
             userScore = 0;
@@ -263,15 +252,18 @@ function buttonAHandler() {
 
         case "loading-screen":
             document.getElementById("scoreScreen").innerHTML = "";
-            rotateAnimation("pokeImage", 10);
+
+            document.getElementById("pokeImage").classList.add("rotate");
             document.getElementById("mainBody").innerHTML = "Here are the instructions on how to play the game. The back of a pokemon will appear on screen, press the A button to get clues about the pokemon, when you are ready to guess press the B button<br><br> Now press A button to start the game.";
             getApi();
             gameState = "instructions-screen";
             break;
             
             case "next-pokemon":
+                document.getElementById("pokeImage").classList.remove("reg-pokemon");
+                document.getElementById("pokeImage").classList.remove("rotate");
+                document.getElementById("pokeImage").classList.add("big-pokemon");
                 document.querySelector("img").src = apiReturn.frontImage;
-                rotateAnimation("pokeImage", 10);
                 document.getElementById("mainBody").innerHTML = "Click A for the next Pokemon";
                 getApi();
                 gameState = "instructions-screen";
@@ -280,6 +272,9 @@ function buttonAHandler() {
             case "instructions-screen":
                 document.getElementById("mainBody").innerHTML = `Below is the image of a pokemon from the back. Can you guess which one it is?`;
                 document.getElementById("pokeImage").src = apiReturn.backImage;
+                document.getElementById("pokeImage").classList.remove("big-pokemon");
+                document.getElementById("pokeImage").classList.add("reg-pokemon");
+                document.getElementById("pokeImage").classList.add("rotate");
                 gameState = "first-clue-screen"
                 break;
                     

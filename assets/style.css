@@ -340,3 +340,27 @@ input:checked + .slider:before {
       height: 80px;
       margin: 60px 0px 0px 50px;
   }
+
+  .reg-pokemon{
+  }
+
+  .big-pokemon{
+    height: 200px;
+    width: auto;
+    position: relative;
+    bottom: 120px;
+    right: 60px;
+  }
+
+  .rotate {
+    animation: rotation 4s infinite linear;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
