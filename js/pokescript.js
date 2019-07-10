@@ -71,6 +71,12 @@ function buttonOnOffHandler() {
     if (document.getElementById("checkboxSwitch").checked) {
         getApi('101');  // Id for electrode is 101 
         document.getElementById("gameboyScreen").className = "screen";
+        document.getElementById("mainBody").innerHTML = "Press A to play Pokemon Master";
+        let elem = document.createElement("img");
+        elem.setAttribute('id', 'pokeImage');
+        document.getElementById("mainBody").appendChild(elem);
+        elem.src = "assets/images/pokemon-logo.png";
+        elem.classList.add("pokelogo"); 
 
     } else { // Simulate switching off the Gameboy
         // Reset variables
@@ -307,13 +313,13 @@ function buttonBHandler() {
 
 
 // Get the modal
-var modal = document.getElementById("myModal");
+let modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+let btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+let span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal 
 btn.onclick = function() {
