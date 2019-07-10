@@ -16,18 +16,13 @@ body{
 }
 
 
-.heading{
-    text-align: center;
-    color: rgb(255, 255, 255);
-    font-size: 50px;
-}
 
 .gameboy{
     border: 3px solid #626979;
     border-bottom-right-radius: 15%;
     background-color: #D8D9D4;
     max-width: 684px;
-    height: 900px;
+    height: 835px;
     margin: 0 auto;
 
 }
