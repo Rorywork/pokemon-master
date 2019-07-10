@@ -4,15 +4,16 @@ html {
 
 
 body{
-    /* background-image: url("https://i.redd.it/l1xavzdt90f01.png"); */
-    min-height: 100%;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url("https://wallpaperplay.com/walls/full/6/3/7/58401.jpg");
-    background-position: center;
-    color: black;
+    height: 100%;
+    background-image: repeating-linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url(https://wallpaperplay.com/walls/full/6/3/7/58401.jpg);
+    background-attachment: fixed;
+    color: #000;
     font-size: 14px;
     font-smooth: never;
     -webkit-font-smoothing: none;
     font-family: 'pokemon-font', monospace;
+    margin: 0;
+    background-repeat: no-repeat;
 }
 
 
