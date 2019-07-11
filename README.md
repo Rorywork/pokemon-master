@@ -54,6 +54,13 @@ Finally the gameboy features a curved bottom right edge which reflects the desig
 * Future versions of the game will feature the ability to log your highest scores on a leaderboard to the right of the gameboy.
 * Future versions of the game will create a use for the start and select buttons as currently these are just aesthetic features.
 
+## Technologies Used
+
+* HTML
+* CSS
+* [Bootstrap Grid](https://getbootstrap.com/)
+* [Javascript](https://www.javascript.com/)
+* [Fontspace](https://www.fontspace.com)
 
 
 
