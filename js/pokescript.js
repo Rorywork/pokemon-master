@@ -64,16 +64,16 @@ document.addEventListener('keydown', function (event) {
     }
     if (event.code == 'Enter' && gameState == "selecting-answer") {
         checkAnswer();
-    } 
+    }
     if (event.code == 'KeyA' && gameState != "selecting-answer") {
-       buttonAHandler();
-    }  
+        buttonAHandler();
+    }
     if (event.code == 'KeyA' && gameState == "selecting-answer") {
         checkAnswer();
-     }  
+    }
     if (event.code == 'KeyB') {
         buttonBHandler();
-    } 
+    }
 });
 
 /*
@@ -84,14 +84,14 @@ Displays Pokemon logo and removes it as necessary.
 function buttonOnOffHandler() {
 
     if (document.getElementById("checkboxSwitch").checked) {
-        getApi('101');  // Id for electrode is 101 
+        getApi('101'); // Id for electrode is 101 
         document.getElementById("gameboyScreen").className = "screen";
         document.getElementById("mainBody").innerHTML = "Press A to play Pokemon Master";
         let elem = document.createElement("img");
         elem.setAttribute('id', 'pokeImage');
         document.getElementById("mainBody").appendChild(elem);
         elem.src = "assets/images/pokemon-logo.png";
-        elem.classList.add("pokelogo"); 
+        elem.classList.add("pokelogo");
 
     } else { // Simulate switching off the Gameboy
         // Reset variables
@@ -267,28 +267,28 @@ function buttonAHandler() {
 
     if (document.getElementById("checkboxSwitch").checked) {
 
-    console.log(`The game state is ${gameState}`);
-    switch (gameState) {
-        case "off":
-            document.getElementById("mainBody").innerHTML = "Loading Pokemon Master. Press A to view instructions.";
-            let elem = document.createElement("img");
-            elem.setAttribute('id', 'pokeImage');
-            document.getElementById("image").appendChild(elem);
-            document.getElementById("pokeImage").classList.add("reg-pokemon");
-            elem.src = apiReturn.frontImage;
-            gameState = "loading-screen";
-            userScore = 0;
-            break;
+        console.log(`The game state is ${gameState}`);
+        switch (gameState) {
+            case "off":
+                document.getElementById("mainBody").innerHTML = "Loading Pokemon Master. Press A to view instructions.";
+                let elem = document.createElement("img");
+                elem.setAttribute('id', 'pokeImage');
+                document.getElementById("image").appendChild(elem);
+                document.getElementById("pokeImage").classList.add("reg-pokemon");
+                elem.src = apiReturn.frontImage;
+                gameState = "loading-screen";
+                userScore = 0;
+                break;
 
-        case "loading-screen":
-            document.getElementById("scoreScreen").innerHTML = "";
+            case "loading-screen":
+                document.getElementById("scoreScreen").innerHTML = "";
 
-            document.getElementById("pokeImage").classList.add("rotate");
-            document.getElementById("mainBody").innerHTML = "Here are the instructions on how to play the game. The back of a pokemon will appear on screen, press the A button to get clues about the pokemon, when you are ready to guess press the B button<br><br> Now press A button to start the game.";
-            getApi();
-            gameState = "instructions-screen";
-            break;
-            
+                document.getElementById("pokeImage").classList.add("rotate");
+                document.getElementById("mainBody").innerHTML = "Here are the instructions on how to play the game. The back of a pokemon will appear on screen, press the A button to get clues about the pokemon, when you are ready to guess press the B button<br><br> Now press A button to start the game.";
+                getApi();
+                gameState = "instructions-screen";
+                break;
+
             case "next-pokemon":
                 document.getElementById("pokeImage").classList.remove("rotate");
                 document.getElementById("pokeImage").classList.remove("reg-pokemon");
@@ -298,7 +298,7 @@ function buttonAHandler() {
                 getApi();
                 gameState = "instructions-screen";
                 break;
-                
+
             case "instructions-screen":
                 document.getElementById("mainBody").innerHTML = `Below is the image of a pokemon from the back. Can you guess which one it is?`;
                 document.getElementById("pokeImage").src = apiReturn.backImage;
@@ -307,30 +307,30 @@ function buttonAHandler() {
                 document.getElementById("pokeImage").classList.add("rotate");
                 gameState = "first-clue-screen"
                 break;
-                    
+
             case "first-clue-screen":
                 document.getElementById("mainBody").innerHTML = `The Pokemon is a ${apiReturn.type} Pokemon.`;
                 gameState = "second-clue-screen"
                 break;
-                        
+
             case "second-clue-screen":
-            document.getElementById("mainBody").innerHTML = `The Pokemon has the ability ${apiReturn.ability}`;
-            gameState = "third-clue-screen"
-            break;
+                document.getElementById("mainBody").innerHTML = `The Pokemon has the ability ${apiReturn.ability}`;
+                gameState = "third-clue-screen"
+                break;
 
-        case "third-clue-screen":
-            document.getElementById("mainBody").innerHTML = `The Pokemon weighs ${apiReturn.weight} Pokegrams`;
-            gameState = "must-answer-screen"
-            break;
+            case "third-clue-screen":
+                document.getElementById("mainBody").innerHTML = `The Pokemon weighs ${apiReturn.weight} Pokegrams`;
+                gameState = "must-answer-screen"
+                break;
 
-        case "must-answer-screen":
-            document.getElementById("mainBody").innerHTML = `There are no more clues. You must now guess the answer.`;
-            break;
+            case "must-answer-screen":
+                document.getElementById("mainBody").innerHTML = `There are no more clues. You must now guess the answer.`;
+                break;
 
-        case "selecting-answer":
-            checkAnswer();
-            break;
-    }
+            case "selecting-answer":
+                checkAnswer();
+                break;
+        }
 
     }
 }
@@ -359,18 +359,18 @@ let btn = document.getElementById("myBtn");
 let span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+btn.onclick = function () {
+    modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+span.onclick = function () {
+    modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
