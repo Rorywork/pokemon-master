@@ -39,7 +39,7 @@ body {
 .help-button {
     font-family: 'pokemon-font', monospace;
     background-color: rgba(251, 253, 251, 0.863);
-    color: black;
+    color: #000;
     height: 60px;
     width: 100%;
     border-style: none;
@@ -115,7 +115,7 @@ body {
 
 #point-1 {
     background-color: #D8D9D4;
-    border-color: black;
+    border-color: #000;
 }
 
 #point-2 {
@@ -126,40 +126,40 @@ body {
 
 #point-3 {
     background-color: #D8D9D4;
-    border-color: black;
+    border-color: #000;
 }
 
 #point-4 {
-    background-color: black;
+    background-color: #000;
     border: grey solid;
     border-right-style: none;
 }
 
 #point-5 {
-    background-color: black;
-    border-color: black;
+    background-color: #000;
+    border-color: #000;
 }
 
 #point-6 {
-    background-color: black;
+    background-color: #000;
     border: grey solid;
     border-left-style: none;
 }
 
 #point-7 {
     background-color: #D8D9D4;
-    border-color: black;
+    border-color: #000;
 }
 
 #point-8 {
-    background-color: black;
+    background-color: #000;
     border: grey solid;
     border-top-style: none;
 }
 
 #point-9 {
     background-color: #D8D9D4;
-    border-color: black;
+    border-color: #000;
 }
 
 #middle-key {
@@ -200,14 +200,14 @@ button:focus {
 #select-button {
     margin-top: 40px;
     height: 10px;
-    background-color: grey;
+    background-color: rgb(128, 128, 128);
     border-radius: 30%;
 }
 
 #start-button {
     margin-top: 40px;
     height: 10px;
-    background-color: grey;
+    background-color: rgb(128, 128, 128);
     border-radius: 30%;
 }
 
@@ -263,7 +263,7 @@ ul.navmenu li a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: lightgrey;
+    background-color: rgb(211, 211, 211);
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -281,11 +281,11 @@ ul.navmenu li a {
 }
 
 input:checked+.slider {
-    background-color: grey;
+    background-color: rgb(128, 128, 128);
 }
 
 input:focus+.slider {
-    box-shadow: 0 0 1px grey;
+    box-shadow: 0 0 1px rgb(128, 128, 128);
 }
 
 input:checked+.slider:before {
@@ -339,7 +339,7 @@ input:checked+.slider:before {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #000;
     text-decoration: none;
     cursor: pointer;
 }
