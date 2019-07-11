@@ -61,6 +61,7 @@ Finally the gameboy features a curved bottom right edge which reflects the desig
 * [Bootstrap Grid](https://getbootstrap.com/)
 * [Javascript](https://www.javascript.com/)
 * [Fontspace](https://www.fontspace.com)
+* [PokeApi](https://pokeapi.co/)
 
 
 
@@ -93,4 +94,37 @@ To clone this project from GitHub:
 
 
 
-https://www.developphp.com/video/JavaScript/Transform-Rotate-Image-Spin-Smooth-Animation-Tutorial
+## Credits
+
+#### Media
+
+* [Wallpaper Play](https://wallpaperplay.com/) provided the background image.
+* [PokeApi Website](https://pokeapi.co/) provided the API which is used to get stats and sprites of the Pokemon.
+
+
+#### Code
+
+* The CSS code for the modal was inspired by the [W3 Schools](https://www.w3schools.com/howto/howto_css_modals.asp) tutorial.
+* The HTML code for the favicon was provided by [Favicon](https://favicon-generator.org).
+
+
+#### Inspiration
+
+The following websites provided some initial ideas and inspiration for the wireframes:
+
+* [Portrait Artist - Anna Gilhespy](https://ajgreaves.github.io/portrait-artist/)
+* [Check out Anna's Github](https://github.com/AJGreaves/portrait-artist)
+* [Tara Sanger](http://www.tarasangermakeup.co.uk/)
+* [Asian Wedding Directory](https://www.asianaweddingdirectory.co.uk/beauty)
+* [Boudoir Belle](http://www.makeupartistsouthampton.co.uk/professional-asian-indian-bridal-makeup-artist/)
+* [Amazing Face](https://amazing-face.co.uk/)
+
+#### Acknowledgements
+
+* Janaki Rai the client provided me with useful feedback on how she would like the website to work.
+* My tutor Simen Daehlin provided useful links, tips and advice on improving the website.
+* [Check out Simen's Github](https://github.com/Eventyret)
+
+
+#### Disclaimer
+The content of this website is currently for educational purposes only.
