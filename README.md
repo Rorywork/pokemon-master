@@ -108,23 +108,11 @@ To clone this project from GitHub:
 * The HTML code for the favicon was provided by [Favicon](https://favicon-generator.org).
 
 
-#### Inspiration
-
-The following websites provided some initial ideas and inspiration for the wireframes:
-
-* [Portrait Artist - Anna Gilhespy](https://ajgreaves.github.io/portrait-artist/)
-* [Check out Anna's Github](https://github.com/AJGreaves/portrait-artist)
-* [Tara Sanger](http://www.tarasangermakeup.co.uk/)
-* [Asian Wedding Directory](https://www.asianaweddingdirectory.co.uk/beauty)
-* [Boudoir Belle](http://www.makeupartistsouthampton.co.uk/professional-asian-indian-bridal-makeup-artist/)
-* [Amazing Face](https://amazing-face.co.uk/)
-
 #### Acknowledgements
 
-* Janaki Rai the client provided me with useful feedback on how she would like the website to work.
 * My tutor Simen Daehlin provided useful links, tips and advice on improving the website.
 * [Check out Simen's Github](https://github.com/Eventyret)
 
 
 #### Disclaimer
-The content of this website is currently for educational purposes only.
+The content of this website is currently for educational purposes only. 
