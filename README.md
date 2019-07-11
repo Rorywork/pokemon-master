@@ -35,6 +35,23 @@ As a user, I would appreciate the game being free to play.
 As a returning player, I would like there to be enough challenge so that there is some replay value within the game.
 
 
+## Features
+
+Pokemon Master is a single page application with numerous features used to build it.
+
+The background to the page consists of an image which has a darkened overlay which allows the gameboy and credit text to stand out. The image gets darker as you move vertically down the page which is a clever aesthetic feature. 
+
+The page also uses a modal which is accessible by clicking the 'Help' button on the top left corner of the Gameboy, this will bring up an instructions screen which tells the user how to operate the gameboy and how to play the game. 
+
+The primary feature of the page is the gameboy itself, this is built using the Boostrap grid system with columns and rows making up the various elements of the gameboys design. The top row features the 'help' button which activates the modal, as well as an on/off toggler which when switched to the 'on' positon will turn on the screen (effect made using as brighter screen colour to emulate a backlight), and load up the game. The screen itself featutres a darker border as is present on on actual gameboy with a small rectangular screen inside. I have tried to stick to similar dimensions to a real gameboy in order to make the application feel asn authentic as possible.
+
+Below the screen are the arrow keys, again built using the Bootstrap grid, there are nine points with the second, fourth, fifth, sixth and eight point coloured black in order to create the effect of a gamepad. There is a small darker circle within the central point which gives the keys a 3d textured feel. Next to theses keys are the A and B buttons which are used to progress the game. Below these are placeholders for the select and start buttons which are not needed for the game, they are simply a desing feature. 
+
+Finally the gameboy features a curved bottom right edge which reflects the design of the original gameboy. This is done using border-radius. 
+
+
+
+
 ## Deployment
 
 To deploy this page to GitHub Pages from its GitHub repository:
