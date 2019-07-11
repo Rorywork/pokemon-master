@@ -3,11 +3,9 @@
     src: url('../fonts/PokemonFont.ttf')
 }
 
-
 html {
     height: 100%;
 }
-
 
 body {
     height: 100%;
@@ -15,7 +13,6 @@ body {
     background-attachment: fixed;
     color: #000;
     font-size: 10px;
-    font-smooth: never;
     -webkit-font-smoothing: none;
     font-family: 'pokemon-font', monospace;
     margin: 0;
