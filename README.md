@@ -115,4 +115,4 @@ To clone this project from GitHub:
 
 
 #### Disclaimer
-The content of this website is currently for educational purposes only. 
+The content of this website is currently for educational and entertainment purposes only. 

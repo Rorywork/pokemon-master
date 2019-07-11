@@ -158,28 +158,31 @@ body{
 #middle-key{
     position: relative;
     height: 20px;
-    background-color: #151312;
+    background-color: #302e2d;
     border-radius: 100%;
 }
 
-.a-button{
+#A-Button{
     border-radius: 60%;
     background-color: #994a50;
     height: 60px;
-    color: white;
+    color: rgb(226, 220, 220);
+    font-weight: 900;
+    font-size: 20px;
+}
 
+#B-Button{
+    border-radius: 60%;
+    background-color: #994a50;
+    height: 60px;
+    color: rgb(226, 220, 220);
+    font-weight: 900;
+    font-size: 20px;
 }
 
 button:focus {
     outline: none;
   }
-
-.b-button{
-    border-radius: 60%;
-    background-color: #994a50;
-    height: 60px;
-    color: white;
-}
 
 #start-buttons{
     background-color: #D8D9D4;
@@ -201,19 +204,14 @@ button:focus {
     border-radius: 30%;
 }
 
-#nintendo-corner{
-    height: 130px;
+#footer{
+color: rgb(248, 244, 8);
+margin: 30px 0px 0px 50px;
+
 }
 
-
-.black-line{
-    background-color: #D8D9D4;
-    height: 100px;
-}
-
-#grill{
-    margin-top: 75px;
-    background-color: black;
+#credit-link{
+    color: rgb(248, 244, 8);  
 }
 
 ul.navmenu {
@@ -308,7 +306,7 @@ input:checked + .slider:before {
   .modal-content {
     font-size: 16px;
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 60%; /* Could be more or less, depending on screen size */
