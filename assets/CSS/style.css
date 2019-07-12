@@ -17,7 +17,7 @@ body {
     background-repeat: repeat;
     padding-top: 20px
 }
-
+/* The faded out text that tells the user how to turn on the GameBoy - was advised to do this based on user feedback. */
 #switch-instruction{
     color: rgb(255, 255, 255, 0.8);
     font-family: Arial, Helvetica, sans-serif;
@@ -87,7 +87,7 @@ body {
     height: 81%;
     background-color: #356152;
 }
-
+/* The Javascript places content inside these three rows at various stages of the game. */
 .scoreRow {
     height: 35px;
 }
@@ -113,7 +113,8 @@ body {
     height: 40px;
 }
 
-
+/* I wanted to make these points more descriptive but ran into serveral bugs as I changed their names, this will be reviewed for further versions. The arrow 
+keys sit in a 9x9 grid with each point beign a square in this grid. */
 #point-1 {
     background-color: #D8D9D4;
     border-color: #000;
@@ -371,6 +372,8 @@ input:checked+.slider:before {
         transform: rotate(359deg);
     }
 }
+
+/* These media queries are used to make the GameBoy sit in the middle of the screen on tablet and mobile, I did this based on user feedback. */
 
 @media(max-width: 601x) {
 	.gameboy{
