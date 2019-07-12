@@ -35,32 +35,26 @@ Event listeners for the two Red onscreen buttons
 Invoke action handlers based upon which has been clicked
 */
 document.getElementById('A-Button').addEventListener('click', function () {
-    //console.log(gameState);
     buttonAHandler();
 }, false);
 
 document.getElementById('B-Button').addEventListener('click', function () {
-    //console.log(gameState);
     buttonBHandler();
 }, false);
 
 document.getElementById('point-6').addEventListener('click', function () {
-    //console.log(gameState);
     listDown();
 }, false);
 
 document.getElementById('point-2').addEventListener('click', function () {
-    //console.log(gameState);
     listUp();
 }, false);
 
 document.getElementById('point-8').addEventListener('click', function () {
-    //console.log(gameState);
     listDown();
 }, false);
 
 document.getElementById('point-4').addEventListener('click', function () {
-    //console.log(gameState);
     listUp();
 }, false);
 
@@ -152,8 +146,6 @@ function getRandomCandidateAnswers() {
     // Finally add the correct Pokemon ID to the array
     pokemonAnswerIDs.push(apiReturn.id);
 
-    //console.log(`The indexes of the possible answers are ${pokemonAnswerIDs}`);
-
     // Code to build array of possible answers from the API pokemon names seleced from the random IDs above
     const pokeapiURL = "https://pokeapi.co/api/v2/generation/1"; // API call to return full Pokedex
     // Fetch execute to return API data as JSON to variable data
@@ -162,12 +154,10 @@ function getRandomCandidateAnswers() {
             return results.json();
         })
         .then(data => {
-            //console.log(data);
-            //console.log(data.pokemon_species[1]);
+
 
             // Loop through species element to retrieve Pokemon name and unique url       
             data.pokemon_species.forEach(function (pokemon, index) {
-                //console.log(pokemon.name);
                 let name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1); // String manipulation to Capitalise Pokemon name
                 let url = pokemon.url;
                 // get the Index of the specific Pokemon via substring on the url looking for pos "s/" and final "/"
@@ -179,7 +169,6 @@ function getRandomCandidateAnswers() {
                 pokemonAnswerIDs.indexOf(parseInt(pIndex)) >= 0 ? candidateAnswerPokemonNames.push(name) : console.log();
             });
 
-            //console.log(`The names of the possible answers are ${candidateAnswerPokemonNames}`);
 
             ansHighlightPos = 1; // Initialise the position of the highlighted answer
 
@@ -196,7 +185,6 @@ function getRandomCandidateAnswers() {
             // Set the initial li element to be highlighted
             document.getElementById("listPos1").setAttribute("style", "background-color:#555;");
 
-            console.log("Fetch successful")
         })
         .catch(function (error) {
             console.log('There has been a problem with your fetch operation: ', error.message);
@@ -260,7 +248,6 @@ function getApi(selectApi) {
         })
         .then(data => {
 
-            //console.log(data);
 
             apiReturn = new Pokemon(
                 data.id,
@@ -271,8 +258,6 @@ function getApi(selectApi) {
                 data.abilities[0].ability.name,
                 data.weight,
                 data.height)
-
-            console.log("Fetch successful")
 
         })
         .catch(function (error) {
@@ -288,7 +273,6 @@ function buttonAHandler() {
 
     if (document.getElementById("checkboxSwitch").checked) {
 
-        console.log(`The game state is ${gameState}`);
         switch (gameState) {
             case "off":
                 document.getElementById("mainBody").innerHTML = "Loading Pokemon Master. Press A to view instructions.";
@@ -362,7 +346,6 @@ gameState variable is checked to ensure no code execution outside of the user be
 */
 function buttonBHandler() {
 
-    console.log(`The game state is ${gameState}`);
     if (gameState == "first-clue-screen" || gameState == "second-clue-screen" || gameState == "third-clue-screen" || gameState == "must-answer-screen") {
         getRandomCandidateAnswers();
         gameState = "selecting-answer"
@@ -370,26 +353,25 @@ function buttonBHandler() {
 
 }
 
-// Get the modal
+
 let modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
+
 let btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
+
 let span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal 
+
 btn.onclick = function () {
     modal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
+
 span.onclick = function () {
     modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
