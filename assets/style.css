@@ -164,7 +164,8 @@ body {
 
 #middle-key {
     position: relative;
-    height: 20px;
+    margin-top: 7px;
+    height: 25px;
     background-color: #302e2d;
     border-radius: 100%;
 }
@@ -185,6 +186,16 @@ body {
     color: rgb(226, 220, 220);
     font-weight: 900;
     font-size: 20px;
+}
+
+.letter-on-button{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    text-align: center;
+    margin: 17px 0px 0px 0px;
+    font-size: 20px;
+
 }
 
 button:focus {
