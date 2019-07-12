@@ -153,7 +153,7 @@ I also received the feedback in the readme I should have wireframes for each scr
 
 I asked my peers on the Code Insitute Slack channel for feedback on the website and received the following feedback:
 
-* Feedback to come:
+* I was advised that on mobile and tablet screens the GameBoy is too far towards the top of the page, I fixed this using media queries in the CSS. I applied a margin-top attribute to the GameBoy which means it sits in the middle of the screen verticall on smaller screen sizes.
 
 
 
