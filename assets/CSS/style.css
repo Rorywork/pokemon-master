@@ -365,3 +365,15 @@ input:checked+.slider:before {
         transform: rotate(359deg);
     }
 }
+
+@media(max-width: 601x) {
+	.gameboy{
+        margin-top: 300px;
+    }
+}
+
+@media(max-width: 1200px) {
+	.gameboy{
+        margin-top: 160px;
+    }
+}
