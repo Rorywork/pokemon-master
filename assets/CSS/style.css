@@ -1,6 +1,6 @@
 @font-face {
     font-family: pokemon-font;
-    src: url('../fonts/PokemonFont.ttf')
+    src: url('../../fonts/PokemonFont.ttf')
 }
 
 html {
@@ -38,7 +38,7 @@ body {
 
 .help-button {
     font-family: 'pokemon-font', monospace;
-    background-color: rgba(251, 253, 251, 0.863);
+    background-color: #D8D9D4;
     color: #000;
     height: 60px;
     width: 100%;
@@ -195,7 +195,6 @@ body {
     text-align: center;
     margin: 17px 0px 0px 0px;
     font-size: 20px;
-
 }
 
 button:focus {
