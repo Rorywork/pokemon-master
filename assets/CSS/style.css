@@ -2,7 +2,6 @@
     font-family: pokemon-font;
     src: url('../../fonts/PokemonFont.ttf')
 }
-
 html {
     height: 100%;
 }
@@ -19,7 +18,6 @@ body {
     padding-top: 20px
 }
 
-
 .gameboy {
     border: 3px solid #626979;
     border-bottom-right-radius: 15%;
@@ -27,7 +25,6 @@ body {
     max-width: 684px;
     height: 835px;
     margin: 0 auto;
-
 }
 
 #top-controls-gameboy {
@@ -67,7 +64,6 @@ body {
     height: 40%;
 }
 
-
 .screen-border {
     background-color: #6B6A72;
     border: 2px solid #222222;
@@ -86,22 +82,16 @@ body {
     background-color: #356152;
 }
 
-/*Combined from other test pages*/
-
-
 .scoreRow {
     height: 35px;
-
 }
 
 .gameRow {
     height: 133px;
-
 }
 
 .instructionRow {
     height: 120px;
-
 }
 
 #nintendo-logo {
@@ -112,8 +102,6 @@ body {
 .arrow-keys {
     height: 120px;
 }
-
-
 .row1 {
     height: 40px;
 }
@@ -133,7 +121,7 @@ body {
 
 #point-2 {
     background-color: #000;
-    border: rgb(128, 128, 128) solid;
+    border: #808080 solid;
     border-bottom-style: none;
 }
 
@@ -144,7 +132,7 @@ body {
 
 #point-4 {
     background-color: #000;
-    border: rgb(128, 128, 128) solid;
+    border: #808080 solid;
     border-right-style: none;
 }
 
@@ -155,7 +143,7 @@ body {
 
 #point-6 {
     background-color: #000;
-    border: rgb(128, 128, 128) solid;
+    border: #808080 solid;
     border-left-style: none;
 }
 
@@ -166,7 +154,7 @@ body {
 
 #point-8 {
     background-color: #000;
-    border: rgb(128, 128, 128) solid;
+    border: rgb#808080 solid;
     border-top-style: none;
 }
 
@@ -187,7 +175,7 @@ body {
     border-radius: 60%;
     background-color: #994a50;
     height: 60px;
-    color: rgb(226, 220, 220);
+    color: #E2DCDC
     font-weight: 900;
     font-size: 20px;
 }
@@ -196,7 +184,7 @@ body {
     border-radius: 60%;
     background-color: #994a50;
     height: 60px;
-    color: rgb(226, 220, 220);
+    color: #E2DCDC
     font-weight: 900;
     font-size: 20px;
 }
@@ -223,19 +211,18 @@ button:focus {
 #ss-button {
     margin-top: 40px;
     height: 10px;
-    background-color: rgb(128, 128, 128);
+    background-color: #808080
     border-radius: 30%;
 }
 
-
 #footer {
-    color: rgb(248, 244, 8);
+    color: #F8F408;
     margin: 30px 0px 0px 50px;
 
 }
 
 #credit-link {
-    color: rgb(248, 244, 8);
+    color: #F8F408;
 }
 
 ul.navmenu {
@@ -253,8 +240,6 @@ ul.navmenu li a {
     text-decoration: none;
 
 }
-
-
 
 /* The switch - the box around the slider */
 .switch {
@@ -280,7 +265,7 @@ ul.navmenu li a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgb(211, 211, 211);
+    background-color: #D3D3D3;
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -292,17 +277,17 @@ ul.navmenu li a {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: rgb(251, 252, 250);
+    background-color: #FBFCFA;
     -webkit-transition: .4s;
     transition: .4s;
 }
 
 input:checked+.slider {
-    background-color: rgb(128, 128, 128);
+    background-color: #808080;
 }
 
 input:focus+.slider {
-    box-shadow: 0 0 1px rgb(128, 128, 128);
+    box-shadow: 0 0 1px #808080;
 }
 
 input:checked+.slider:before {
@@ -315,23 +300,15 @@ input:checked+.slider:before {
 /* The Modal (background) */
 .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Sit on top */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
+    background-color: #000000;
     background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
@@ -339,11 +316,9 @@ input:checked+.slider:before {
     font-size: 16px;
     background-color: #fefefe;
     margin: 5% auto;
-    /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 60%;
-    /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
