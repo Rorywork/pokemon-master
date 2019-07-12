@@ -92,6 +92,61 @@ To clone this project from GitHub:
 8. Press Enter. Your local clone will be created.
 9. Further reading and troubleshooting on cloning a repository from GitHub here.
 
+## Testing
+
+#### W3
+I conducted automated testing using the W3 HTML checker, this displays any syntax errors within the HTML code, I ran it on each page and then went through and fixed each error one by one, until the validator produced no errors. One major error I had was using the col attribute on my buttons, I fixed this by making them div's then using event listeners in my Javascript
+to activate them when clicked. I still used buttons on the A and B, but I placed these buttons within a div with a col attribute. I also ran my code through the W3 CSS tester which produced no errors. 
+ 
+#### Audits / Chrome Dev Tools
+I used Chrome Dev Tools to run audits on the performance, accessibility and best practices on the website for both mobile and desktop layouts. I then took on board the feedback and made changes to my website where necessary in order to achieve higher scores. One of the key things I changed was adding the alt attribute to my images where necessary, the performance score came out very good which
+I was pleased with.
+
+#### Manual Testing
+I have tested each page on the following browsers:  
+
+* Google Chrome
+* Apple Safari
+* Microsoft Edge
+* Internet Explorer - I found with Internet Explorer my application does not work and has a lot of bugs, It is proposed that in version 2 I will try to build a version which is compatible with Internet Explorer. However as Internet Explorer is being phased out by more modern operating systems I am okay with it not being IE compatible for now.
+
+#### Devices Tested
+
+* iPhone X
+* iPhone 8
+* Microsoft Surfacebook Pro
+* Samsung Tablet
+* Ultra Large Samsung Display 
+* iPad Pro
+* iPad
+
+#### Debugging
+
+During my tests I encountered a lot of different bugs which I then had to debug. Here are some of the key examples:
+
+* I encountered a bug regarding the gamestate whereby when I changed the API call to display a random Pokemon from where it originally called an API to show Electrode the javascript could not call the API faster than I could click through the Gamestate resulting in Electrode not changing to a new random Pokemon. In order to remedy this I added an extra step to the gamestate after the loading screen,
+the additional time allows enough of a gap for the new API to be called and the new image to load. 
+
+* The background image for the page has a gradient dark filter over the top creating an aethetically pleasing visual effect, however I had a bug whereby the overlay only went to a certain point of the background image which ruined the effect. To fix this I game the background image the fixed property, the repeat property and the repeating linear gradient property instead of just linear gradiant. This fixed the bug
+and improved the aesthetics. 
+
+* The arrow keys were not selecting from the random Pokemon as they should often missing a spot seemingly randomly, and the gameboy stopped loading up for a day. I debugged it and realised I had some out of date code from a previous font I was using which was trying to pull the font from a websitwe which has now been discontinued. This stoppede my whole gameboy from loading and
+introcuded what seemed to be bugs on the changes I was making. I identified and removed this code and it fixed the problem.
+
+* The rotation on the Pokemon was originally done using some outdate javascript code, when I came the stage where I wanted to stop the image and make it bigger I could not get the CSS to act this way on the class, therefore I did more research modernized the code and the rotation now works and is stopped when necessary.
+
+#### User Tests
+
+I got members of my friends and family to try the website on their devices then asked for feedback, I would then review the feedback and implement it where relevant in the design. The initial feedback I received was that 
+the game was fun to play but it would be useful to have a high score section, this will be implemented in a future version.
+
+I also received the feedback in the readme I should have wireframes for each screen size even though it is similar on all screens, based on this I added two more wireframes. 
+
+I asked my peers on the Code Insitute Slack channel for feedback on the website and received the following feedback:
+
+* Feedback to come:
+
+
 
 
 ## Credits
