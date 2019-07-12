@@ -155,7 +155,7 @@ I asked my peers on the Code Insitute Slack channel for feedback on the website 
 
 * I was advised that on mobile and tablet screens the GameBoy is too far towards the top of the page, I fixed this using media queries in the CSS. I applied a margin-top attribute to the GameBoy which means it sits in the middle of the screen vertically on smaller screen sizes.
 
-* I was advised that it is not clear how to turn on the GameBoy, many users did not want to click the help button initially as they wanted to see if they could figure out without getting spoilers for the game. They suggested I put a separate instruction on the page so that users know how to get it turned on, and can then decide if they need further help as necessary.
+* I was advised that it is not clear how to turn on the GameBoy, many users did not want to click the help button initially as they wanted to see if they could figure out without getting spoilers for the game. They suggested I put a separate instruction on the page so that users know how to get it turned on, and can then decide if they need any further help when necessary.
 
 
 
