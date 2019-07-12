@@ -102,17 +102,10 @@ body {
 .arrow-keys {
     height: 120px;
 }
-.row1 {
+.arrow-keys-row {
     height: 40px;
 }
 
-.row2 {
-    height: 40px;
-}
-
-.row3 {
-    height: 40px;
-}
 
 #point-1 {
     background-color: #D8D9D4;

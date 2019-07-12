@@ -28,13 +28,13 @@ It is designed for Pokemon fans of all ages.
 * Anyone with a spare few minutes to play
 
 ### User Stories
-As a user, I want the game to load quickly so I can start playing.  
-As a user, I want to play with lots of different Pokemon.  
-As a user, I want to see how I am doing in the game and keep track of my score.  
-As a user, I want to be challenged so that I improve my knowledge of the Gen 1 Pokemon.
-As a user, I want the game to be fun to play.  
-As a user, I would appreciate the game being free to play.  
-As a returning player, I would like there to be enough challenge so that there is some replay value within the game.
+* As a user, I want the game to load quickly so I can start playing.  
+* As a user, I want to play with lots of different Pokemon.  
+* As a user, I want to see how I am doing in the game and keep track of my score.  
+* As a user, I want to be challenged so that I improve my knowledge of the Gen 1 Pokemon.
+* As a user, I want the game to be fun to play.  
+* As a user, I would appreciate the game being free to play.  
+* As a returning player, I would like there to be enough challenge so that there is some replay value within the game.
 
 #### Wireframe mockups
 
