@@ -1,6 +1,6 @@
 # Pokemon Master
 
-[Check it out here!](https://rorywork.github.io/pokemon-master/)
+[Check it out here!](https://rorywork.github.io/pokemon-master/)  
 
 Pokemon Master will test your knowledge of the Pokemon in generation 1. You have to work out which Pokemon is is based on a series of clues. Find out here and become a Pokemon Master!
 
