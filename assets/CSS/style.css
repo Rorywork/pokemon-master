@@ -214,25 +214,19 @@ button:focus {
     outline: none;
 }
 
-#start-buttons {
+#ss-buttons {
     background-color: #D8D9D4;
     height: 100px;
     margin-top: 50px;
 }
 
-#select-button {
+#ss-button {
     margin-top: 40px;
     height: 10px;
     background-color: rgb(128, 128, 128);
     border-radius: 30%;
 }
 
-#start-button {
-    margin-top: 40px;
-    height: 10px;
-    background-color: rgb(128, 128, 128);
-    border-radius: 30%;
-}
 
 #footer {
     color: rgb(248, 244, 8);
@@ -367,7 +361,7 @@ input:checked+.slider:before {
     cursor: pointer;
 }
 
-#mew-image {
+#meowth-image {
     margin: 50px;
     display: block;
     margin-left: auto;
