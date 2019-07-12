@@ -40,6 +40,8 @@ As a returning player, I would like there to be enough challenge so that there i
 
 
 [PC](https://raw.githubusercontent.com/Rorywork/pokemon-master/master/assets/wireframes/Wireframe-PC.PNG)  
+[Tablet](https://raw.githubusercontent.com/Rorywork/pokemon-master/master/assets/wireframes/Wireframe-Tablet.PNG)  
+[Mobile](https://raw.githubusercontent.com/Rorywork/pokemon-master/master/assets/wireframes/Wireframe-Mobile.PNG)  
 
 
 ## Features
