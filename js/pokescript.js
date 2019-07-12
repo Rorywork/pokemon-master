@@ -44,6 +44,27 @@ document.getElementById('B-Button').addEventListener('click', function () {
     buttonBHandler();
 }, false);
 
+document.getElementById('point-6').addEventListener('click', function () {
+    //console.log(gameState);
+    listDown();
+}, false);
+
+document.getElementById('point-2').addEventListener('click', function () {
+    //console.log(gameState);
+    listUp();
+}, false);
+
+document.getElementById('point-8').addEventListener('click', function () {
+    //console.log(gameState);
+    listDown();
+}, false);
+
+document.getElementById('point-4').addEventListener('click', function () {
+    //console.log(gameState);
+    listUp();
+}, false);
+
+
 /* 
 Event listeners for keyboard arrow keys and Enter as alternatives to onscreen arrow keys to select the correct answer
 Also can use the A and B keyboard keys as alternatives to onscreen buttons
