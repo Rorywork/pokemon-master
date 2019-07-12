@@ -39,7 +39,7 @@ As a returning player, I would like there to be enough challenge so that there i
 #### Wireframe mockups
 
 
-[PC](https://raw.githubusercontent.com/Rorywork/pokemon-master/assets/wireframes/Wireframe-PC.PNG)  
+[PC](https://raw.githubusercontent.com/Rorywork/pokemon-master/master/assets/wireframes/Wireframe-PC.PNG)  
 
 
 ## Features
