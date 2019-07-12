@@ -6,19 +6,19 @@ Pokemon Master will test your knowledge of the Pokemon in generation 1. You have
 
 ## UX
 
-The goal of Pokemon Master is to provide a fun, entertaining way of testing your knowledge of the differen Pokemon. You are given an image fo the Pokemon from behind and up to three clues to work it out. It is perfect for procrastinating at work, keeping the kids entertained or providing your daily dose of nostaligia. 
+The goal of Pokemon Master is to provide a fun, entertaining way of testing your knowledge of the different Pokemon. You are given an image fo the Pokemon from behind and up to three clues to work it out. It is perfect for procrastinating at work, keeping the kids entertained or providing your daily dose of nostalgia. 
 It is designed for Pokemon fans of all ages. 
 
 #### Player Goals
 
-* Improve the players knowledge of the different types of Pokemon
+* Improve the player's knowledge of the different types of Pokemon
 * Provide an entertaining and visually rich experience
 * Fun to play
 * In future will allow the player to compete with friends.
 
 #### Business Goals
 
-* Provide an initial game which can be expanded upon for release to public in future.
+* Provide an initial game that can be expanded upon for release to the public in the future.
 * Gain experience using an API, which will be beneficial for future endeavors.
 
 #### Ideal User
@@ -48,20 +48,20 @@ It is designed for Pokemon fans of all ages.
 
 Pokemon Master is a single page application with numerous features used to build it.
 
-The background to the page consists of an image which has a darkened overlay which allows the gameboy and credit text to stand out. The image gets darker as you move vertically down the page which is a clever aesthetic feature. 
+The background to the page consists of an image that has a darkened overlay which allows the GameBoy and credit text to stand out. The image gets darker as you move vertically down the page which is a clever aesthetic feature. 
 
-The page also uses a modal which is accessible by clicking the 'Help' button on the top left corner of the Gameboy, this will bring up an instructions screen which tells the user how to operate the gameboy and how to play the game. 
+The page also uses a modal that is accessible by clicking the 'Help' button on the top left corner of the GameBoy, this will bring up an instructions screen that tells the user how to operate the GameBoy and how to play the game. 
 
-The primary feature of the page is the gameboy itself, this is built using the Boostrap grid system with columns and rows making up the various elements of the gameboys design. The top row features the 'help' button which activates the modal, as well as an on/off toggler which when switched to the 'on' positon will turn on the screen (effect made using as brighter screen colour to emulate a backlight), and load up the game. The screen itself featutres a darker border as is present on on actual gameboy with a small rectangular screen inside. I have tried to stick to similar dimensions to a real gameboy in order to make the application feel asn authentic as possible.
+The primary feature of the page is the GameBoy itself, this is built using the Bootstrap grid system with columns and rows making up the various elements of the GameBoy's design. The top row features the 'help' button which activates the modal, as well as an on/off toggle which when switched to the 'on' position will turn on the screen (an effect made using a brighter screen colour to emulate a backlight), and load up the game. The screen itself features a darker border as is present in an actual GameBoy with a small rectangular screen inside. I have tried to stick to similar dimensions to a real GameBoy in order to make the application feel as authentic as possible.
 
-Below the screen are the arrow keys, again built using the Bootstrap grid, there are nine points with the second, fourth, fifth, sixth and eight point coloured black in order to create the effect of a gamepad. There is a small darker circle within the central point which gives the keys a 3d textured feel. Next to theses keys are the A and B buttons which are used to progress the game. Below these are placeholders for the select and start buttons which are not needed for the game, they are simply a desing feature. 
+Below the screen are the arrow keys, again built using the Bootstrap grid, there are nine points with the second, fourth, fifth, sixth and eighth points coloured black in order to create the effect of a gamepad. There is a small darker circle within the central point which gives the keys a 3d textured feel. Next to these keys are the A and B buttons which are used to progress the game. Below these are placeholders for the select and start buttons that are not needed for the game, they are simply a design feature. 
 
-Finally the gameboy features a curved bottom right edge which reflects the design of the original gameboy. This is done using border-radius. 
+Finally, the GameBoy features a curved bottom right edge which reflects the design of the original GameBoy. This is done using border-radius. 
 
 #### Features Left To Implement
 
-* Future versions of the game will feature the ability to log your highest scores on a leaderboard to the right of the gameboy.
-* Future versions of the game will create a use for the start and select buttons as currently these are just aesthetic features.
+* Future versions of the game will feature the ability to log your highest scores on a leaderboard to the right of the GameBoy.
+* Future versions of the game will create a use for the start and select buttons as currently, these are just aesthetic features.
 
 ## Technologies Used
 
@@ -117,7 +117,7 @@ I have tested each page on the following browsers:
 * Google Chrome
 * Apple Safari
 * Microsoft Edge
-* Internet Explorer - I found with Internet Explorer my application does not work and has a lot of bugs, It is proposed that in version 2 I will try to build a version which is compatible with Internet Explorer. However as Internet Explorer is being phased out by more modern operating systems I am okay with it not being IE compatible for now.
+* Internet Explorer - I found with Internet Explorer my application does not work and has a lot of bugs, It is proposed that in version 2 I will try to build a version that is compatible with Internet Explorer. However, as Internet Explorer is being phased out by more modern operating systems I am okay with it not being IE compatible for now.
 
 #### Devices Tested
 
@@ -131,18 +131,18 @@ I have tested each page on the following browsers:
 
 #### Debugging
 
-During my tests I encountered a lot of different bugs which I then had to debug. Here are some of the key examples:
+During my tests, I encountered a lot of different bugs which I then had to debug. Here are some of the key examples:
 
-* I encountered a bug regarding the gamestate whereby when I changed the API call to display a random Pokemon from where it originally called an API to show Electrode the javascript could not call the API faster than I could click through the Gamestate resulting in Electrode not changing to a new random Pokemon. In order to remedy this I added an extra step to the gamestate after the loading screen,
+* I encountered a bug regarding the game state whereby when I changed the API call to display a random Pokemon from where it originally called an API to show Electrode the javascript could not call the API faster than I could click through the game state resulting in Electrode not changing to a new random Pokemon. In order to remedy this, I added an extra step to the game state after the loading screen,
 the additional time allows enough of a gap for the new API to be called and the new image to load. 
 
-* The background image for the page has a gradient dark filter over the top creating an aethetically pleasing visual effect, however I had a bug whereby the overlay only went to a certain point of the background image which ruined the effect. To fix this I game the background image the fixed property, the repeat property and the repeating linear gradient property instead of just linear gradiant. This fixed the bug
+* The background image for the page has a gradient dark filter over the top creating an aesthetically pleasing visual effect, however, I had a bug whereby the overlay only went to a certain point of the background image which ruined the effect. To fix this I gave the background image the fixed property, the repeat property, and the repeating linear-gradient property instead of just linear gradient. This fixed the bug
 and improved the aesthetics. 
 
-* The arrow keys were not selecting from the random Pokemon as they should often missing a spot seemingly randomly, and the gameboy stopped loading up for a day. I debugged it and realised I had some out of date code from a previous font I was using which was trying to pull the font from a websitwe which has now been discontinued. This stoppede my whole gameboy from loading and
-introcuded what seemed to be bugs on the changes I was making. I identified and removed this code and it fixed the problem.
+* The arrow keys were not selecting from the random Pokemon as they should often missing a spot seemingly randomly, and the Gameboy stopped loading up for a day. I debugged it and realised I had some out of date code from a previous font I was using which was trying to pull the font from a website which has now been discontinued. This stopped my whole GameBoy from loading and
+introduced what seemed to be bugs on the changes I was making. I identified and removed this code and it fixed the problem.
 
-* The rotation on the Pokemon was originally done using some outdate javascript code, when I came the stage where I wanted to stop the image and make it bigger I could not get the CSS to act this way on the class, therefore I did more research modernized the code and the rotation now works and is stopped when necessary.
+* The rotation on the Pokemon was originally done using some outdated javascript code, when I came the stage where I wanted to stop the image and make it bigger I could not get the CSS to act this way on the class, therefore I did more research modernized the code and the rotation now works and is stopped when necessary.
 
 #### User Tests
 
@@ -174,7 +174,7 @@ I asked my peers on the Code Insitute Slack channel for feedback on the website 
 
 #### Acknowledgements
 
-* My tutor Simen Daehlin provided useful links, tips and advice on improving the website.
+* My tutor Simen Daehlin provided useful links, tips, and advice on improving the website.
 * [Check out Simen's Github](https://github.com/Eventyret)
 
 
