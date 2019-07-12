@@ -68,7 +68,7 @@ Finally the gameboy features a curved bottom right edge which reflects the desig
 * HTML
 * CSS
 * [Bootstrap Grid](https://getbootstrap.com/)
-* [Javascript](https://www.javascript.com/)
+* Javascript
 * [Fontspace](https://www.fontspace.com)
 * [PokeApi](https://pokeapi.co/)
 

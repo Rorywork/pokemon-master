@@ -1,4 +1,4 @@
-/*
+/* 
 Global variables used across multiple functions in the code
 */
 let apiReturn;
@@ -10,9 +10,9 @@ let candidateAnswerPokemonNames = []; // Initialise array for Pokemon names
 let ansHighlightPos // Answer list highlight position 
 let userScore;
 
-/*
-Pokemon object to store returned details from API calls.
-Includes a function to capitalise the returned Pokemon name
+/** 
+*Pokemon object to store returned details from API calls.
+*Includes a function to capitalise the returned Pokemon name
 */
 class Pokemon {
     constructor(id, name, frontImage, backImage, type, ability, weight, height) {
@@ -30,9 +30,9 @@ class Pokemon {
     }
 }
 
-/*
-Event listeners for the two Red onscreen buttons
-Invoke action handlers based upon which has been clicked
+/** 
+*Event listeners for the two Red onscreen buttons
+*Invoke action handlers based upon which has been clicked
 */
 document.getElementById('A-Button').addEventListener('click', function () {
     buttonAHandler();
@@ -59,10 +59,10 @@ document.getElementById('point-4').addEventListener('click', function () {
 }, false);
 
 
-/* 
-Event listeners for keyboard arrow keys and Enter as alternatives to onscreen arrow keys to select the correct answer
-Also can use the A and B keyboard keys as alternatives to onscreen buttons
-gameState checking required throughout. 
+/**  
+*Event listeners for keyboard arrow keys and Enter as alternatives to onscreen arrow keys to select the correct answer
+*Also can use the A and B keyboard keys as alternatives to onscreen buttons
+*gameState checking required throughout. 
  */
 document.addEventListener('keydown', function (event) {
     if (event.code == 'ArrowUp' && gameState == "selecting-answer") {
@@ -91,10 +91,10 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-/*
-Function to manage the on/off switch of the simulated Gameboy device.
-Uses background colour to simulate the screen backlight going on and off
-Displays Pokemon logo and removes it as necessary. 
+/** 
+*Function to manage the on/off switch of the simulated Gameboy device.
+*Uses background colour to simulate the screen backlight going on and off
+*Displays Pokemon logo and removes it as necessary. 
 */
 function buttonOnOffHandler() {
 
@@ -124,13 +124,13 @@ function buttonOnOffHandler() {
     }
 }
 
-/*
-Function to generate a number of possible answers when the user is ready to guess the Pokemon.
-Uses global variable numAnswers to determine how many possible answers ( default 5 )
-First step is to generate 4 random numbers between 1 and 151 (no. of Pokemon characters) into an array pokemonAnswerIDs
-Then add the correct answer to the array
-Second step is to loop through the full Pokedex returned from the API call and load the Pokemon names to array candidateAnswerPokemonNames
-Final step is to cycle through the array  and dynamically populate the popup menu with the possible answers.
+/**
+*Function to generate a number of possible answers when the user is ready to guess the Pokemon.
+*Uses global variable numAnswers to determine how many possible answers ( default 5 )
+*First step is to generate 4 random numbers between 1 and 151 (no. of Pokemon characters) into an array pokemonAnswerIDs
+*Then add the correct answer to the array
+*Second step is to loop through the full Pokedex returned from the API call and load the Pokemon names to array candidateAnswerPokemonNames
+*Final step is to cycle through the array  and dynamically populate the popup menu with the possible answers.
 */
 function getRandomCandidateAnswers() {
 
@@ -191,9 +191,9 @@ function getRandomCandidateAnswers() {
         });
 }
 
-/*
-Functions to manage the screen highlight bar when selecting the Pokemon answer
-Works with both on screen arrow keys on the gameboy and keyboard arrow keys
+/**
+*Functions to manage the screen highlight bar when selecting the Pokemon answer
+*Works with both on screen arrow keys on the gameboy and keyboard arrow keys
 */
 function listDown() {
     document.getElementById("listPos" + ansHighlightPos.toString()).setAttribute("style", "background-color:#b2f700");
@@ -210,8 +210,8 @@ function listUp() {
 }
 
 /*
-Function to identify which answer has been selected either by onscreen A key or keyboard and
-determine if answer if correct. Screen responses as per outcome.
+*Function to identify which answer has been selected either by onscreen A key or keyboard and
+*determine if answer if correct. Screen responses as per outcome.
 */
 function checkAnswer() {
     let isCorrect = ((apiReturn.name == candidateAnswerPokemonNames[ansHighlightPos - 1]) ? 'correct' : 'incorrect');
@@ -232,10 +232,10 @@ function checkAnswer() {
     candidateAnswerPokemonNames = []; // Reset the array of possible answers
 }
 
-/*
-Function to make API call to PokeAPI and return details for a specific Pokemon ID
-Default is id 101 ( Electrode ) if no parameter is passed.
-JSON results are loaded to the Pokemon object for ongoing reference in the game
+/**
+*Function to make API call to PokeAPI and return details for a specific Pokemon ID
+*Default is id 101 ( Electrode ) if no parameter is passed.
+*JSON results are loaded to the Pokemon object for ongoing reference in the game
 */
 function getApi(selectApi) {
 
@@ -265,9 +265,9 @@ function getApi(selectApi) {
         });
 }
 
-/*
-Function to handle button A events which are invoked for most of the game.
-gameState variable is checked on switch statement to determine appropriate actions
+/** 
+*Function to handle button A events which are invoked for most of the game.
+*gameState variable is checked on switch statement to determine appropriate actions
 */
 function buttonAHandler() {
 
@@ -340,9 +340,9 @@ function buttonAHandler() {
     }
 }
 
-/*
-Function to handle button B events which is invoked when ready to guess the Pokemon.
-gameState variable is checked to ensure no code execution outside of the user being ready to guess the pokemon
+/** 
+*Function to handle button B events which is invoked when ready to guess the Pokemon.
+*gameState variable is checked to ensure no code execution outside of the user being ready to guess the pokemon
 */
 function buttonBHandler() {
 
