@@ -357,7 +357,7 @@ function buttonBHandler() {
 let modal = document.getElementById("myModal");
 
 
-let btn = document.getElementById("myBtn");
+let btn = document.getElementById("helpButton");
 
 
 let span = document.getElementsByClassName("close")[0];
