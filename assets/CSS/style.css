@@ -30,7 +30,7 @@ body {
 
 }
 
-.top-controls-gameboy {
+#top-controls-gameboy {
     background-color: #D8D9D4;
     height: 5%;
 }
@@ -42,6 +42,20 @@ body {
     height: 60px;
     width: 100%;
     border-style: none;
+}
+
+#onOffSwitch{
+    margin-top: 5px;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+#onOffSwitch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 .grey-trim {
